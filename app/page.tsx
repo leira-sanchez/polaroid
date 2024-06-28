@@ -129,7 +129,7 @@ export default function Home() {
                     data-cal-config='{"layout":"month_view"}'
                     className="text-violet-500 hover:underline"
                   >
-                    Let's talk
+                    Let&apos;s talk
                   </button>
                 </p>
                 <p className="text-gray-700 flex items-center gap-2">

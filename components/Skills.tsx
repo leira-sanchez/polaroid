@@ -17,7 +17,7 @@ const Skills = () => {
           </div>
 
           <Separator className="my-4" />
-          <div className="w-full justify-around flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+          <div className="w-full justify-evenly flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <div className="flex space-x-4 text-sm">
               <div className="w-full pl-4">
                 <h4 className="whitespace-nowrap">Programming Languages</h4>
