@@ -1,6 +1,8 @@
-import Link from "next/link";
 import { FC } from "react";
-
+import Link from "next/link";
+import Markdown from "react-markdown";
+import rehypeRaw from "rehype-raw";
+import { Separator } from "./ui/separator";
 interface ExperienceItemProps {
   jobTitle: string;
   company: string;
@@ -21,26 +23,34 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
   links,
 }) => {
   return (
-    <div className="max-w-full p-6 ">
+    <div className="max-w-full px-6 pt-6 ">
       <div className="pb-2">
-        <div className="flex justify-between items-center">
-          <div>
-            <h4 className="text-lg font-bold">{company}</h4>
+        <div className="flex flex-col justify-between items-center">
+          <h4 className="text-lg text-left w-full font-bold">{company}</h4>
+          <div className="flex flex-col sm:flex-row gap-2 mb-2 justify-between w-full text-gray-600">
             <p className="text-md italic text-gray-600">{jobTitle}</p>
-          </div>
-          <div className="text-right text-gray-600">
             <p>{duration}</p>
           </div>
         </div>
       </div>
       <div>
-        <ul className="list-disc pl-4 list-inside space-y-2 text-gray-700">
+        <ul className="list-disc sm:pl-4 list-inside space-y-2 text-gray-700">
           {responsibilities?.map((responsibility: string) => (
-            <li key={responsibility}>{responsibility}</li>
+            <li key={responsibility}>
+              <Markdown
+                className="inline"
+                components={{
+                  p: ({ node, ...props }) => <span {...props} />,
+                }}
+                rehypePlugins={[rehypeRaw]}
+              >
+                {responsibility}
+              </Markdown>
+            </li>
           ))}
 
           {links && links.web ? (
-            <li>
+            <li className=" list-none">
               <Link
                 className="text-wrap break-words hover:underline text-violet-600"
                 href={links?.web}
@@ -51,6 +61,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
           ) : null}
         </ul>
       </div>
+      <Separator className="mt-4" />
     </div>
   );
 };

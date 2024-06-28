@@ -48,7 +48,7 @@ const EXPERIENCE_STRINGS = [
     responsibilities: [
       "Developed and maintained intelligent marketing & messaging features for the Capital One iOS app",
       "Self-taught Swift, created documentation and automated tests, mentored interns & TDPs, collaborated across teams",
-      "Delivered customer satisfaction and reliable financial services to over 1MM daily users",
+      "Delivered customer satisfaction and reliable financial services to over <strong>1MM<strong/> daily users",
     ],
     links: {},
   },
@@ -57,7 +57,7 @@ const EXPERIENCE_STRINGS = [
     company: "Capital One",
     duration: "August 2019 – January 2021",
     responsibilities: [
-      "Designed and developed an internal full-stack web application for templating email, saving the company over $10MM each year",
+      "Designed and developed an internal full-stack web application for templating email, saving <strong>$10MM+</strong> a year",
       "Built and tested RESTful API endpoints with NodeJS, Sequelize and PostgreSQL to drive data to user-facing features",
       "Developed UI built on reusable components with JavaScript, React, Redux, and Styled Components",
     ],

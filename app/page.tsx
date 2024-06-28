@@ -11,6 +11,8 @@ import ExperienceItem from "@/components/ExperienceItem";
 import EXPERIENCE_STRINGS from "@/constants/experience";
 import Skills from "@/components/Skills";
 import Link from "next/link";
+import Education from "@/components/Education";
+import { Separator } from "@/components/ui/separator";
 
 const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
   <ExperienceItem key={idx} {...experience} />
@@ -39,7 +41,7 @@ export default function Home() {
         </h3>
       </section>
       <section className="flex flex-col sm:flex-row w-full gap-4">
-        <div className=" w-full sm:w-2/5 flex gap-4 flex-col justify-between">
+        <div className=" w-full flex gap-4 flex-col justify-between">
           <Card className="max-w-[640px] sm:hidden w-full sm:w-3/5 h-auto relative rounded-lg aspect-square">
             <Image
               src="/MofongoJobs_pre18_G6_Headshots-16.jpg"
@@ -54,10 +56,10 @@ export default function Home() {
               <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
                 ⚡️
               </span>
-              <CardTitle>Leira</CardTitle>
+              <CardTitle>About Me</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-col space-y-1">
+              <div className="flex flex-col space-y-2">
                 <p className="text-gray-700">📍 Puerto Rico (US territory)</p>
                 <p className="text-gray-700">🐶 Maltipoo named Beni</p>
                 <p className="text-gray-700 flex items-center gap-2">
@@ -67,8 +69,8 @@ export default function Home() {
                     rel="noreferrer"
                   >
                     <svg
-                      width="15"
-                      height="15"
+                      width="20"
+                      height="20"
                       viewBox="0 0 15 15"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -87,8 +89,8 @@ export default function Home() {
                     rel="noreferrer"
                   >
                     <svg
-                      width="15"
-                      height="15"
+                      width="20"
+                      height="20"
                       viewBox="0 0 15 15"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg"
@@ -126,12 +128,12 @@ export default function Home() {
             >
               <Image
                 src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1514780933i/37786022.jpg"
-                width="80"
-                height="120"
-                className=" aspect-auto flex max-w-fit"
+                width="100"
+                height="140"
+                className="w-full aspect-auto flex max-w-fit"
                 alt="Storyworthy cover photo"
               />
-              <div className="flex flex-col justify-between">
+              <div className="flex flex-col">
                 <p>
                   <strong>Storyworthy</strong>: Engage, Teach, Persuade, and
                   Change Your Life through the Power of Storytelling
@@ -143,7 +145,7 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
-        <Card className="max-w-[640px] hidden sm:flex w-full sm:w-3/5 h-auto relative rounded-lg aspect-square">
+        <Card className="max-w-[640px] hidden sm:flex w-full h-auto relative rounded-lg aspect-square">
           <Image
             src="/MofongoJobs_pre18_G6_Headshots-16.jpg"
             alt="brunette profile pic"
@@ -155,7 +157,7 @@ export default function Home() {
       <Skills />
       <section className="w-full">
         <Card className="w-full flex flex-col">
-          <CardHeader className="gap-2">
+          <CardHeader className="gap-2 pb-0">
             <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
               ⚡️
             </span>
@@ -163,10 +165,13 @@ export default function Home() {
             <CardDescription>
               From Mechanical Engineer to Founding Fullstack Engineer
             </CardDescription>
+            <Separator />
           </CardHeader>
+
           {allExperiences}
         </Card>
       </section>
+      <Education />
     </main>
   );
 }
