@@ -12,7 +12,7 @@ const Skills = () => {
         <div className="w-full">
           <div className="space-y-1">
             <p className="text-sm text-muted-foreground">
-              Software Engineer skills
+              Software Engineering, Web Development and other technical skills
             </p>
           </div>
 

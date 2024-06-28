@@ -4,9 +4,10 @@ import Markdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import { Separator } from "./ui/separator";
 interface ExperienceItemProps {
-  jobTitle: string;
   company: string;
   duration: string;
+  isLast?: boolean;
+  jobTitle: string;
   responsibilities: string[];
   links?: {
     web?: string;
@@ -16,11 +17,12 @@ interface ExperienceItemProps {
 }
 
 const ExperienceItem: FC<ExperienceItemProps> = ({
-  jobTitle,
   company,
   duration,
-  responsibilities,
+  isLast,
+  jobTitle,
   links,
+  responsibilities,
 }) => {
   return (
     <div className="max-w-full px-6 pt-6 ">
@@ -61,7 +63,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
           ) : null}
         </ul>
       </div>
-      <Separator className="mt-4" />
+      {!isLast && <Separator className="mt-4" />}
     </div>
   );
 };
