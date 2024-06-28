@@ -4,10 +4,16 @@ import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import ExperienceItem from "@/components/ExperienceItem";
+import EXPERIENCE_STRINGS from "@/constants/experience";
+import Skills from "@/components/Skills";
+
+const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
+  <ExperienceItem key={idx} {...experience} />
+));
 
 export default function Home() {
   return (
@@ -28,6 +34,15 @@ export default function Home() {
       </section>
       <section className="flex flex-col sm:flex-row w-full gap-4">
         <div className=" w-full sm:w-2/5 flex gap-4 flex-col justify-between">
+          <Card className="max-w-[640px] sm:hidden w-full sm:w-3/5 h-auto relative rounded-lg aspect-square">
+            <Image
+              src="/MofongoJobs_pre18_G6_Headshots-16.jpg"
+              alt="brunette profile pic"
+              layout="fill"
+              className="object-cover object-top rounded-lg p-2"
+            />
+          </Card>
+
           <Card>
             <CardHeader className="gap-2">
               <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
@@ -44,7 +59,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card>
+          <Card className="min-h-1/2 h-full">
             <CardHeader className="gap-2">
               <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
                 📚
@@ -81,7 +96,7 @@ export default function Home() {
             </CardContent>
           </Card>
         </div>
-        <Card className="max-w-[640px] w-full sm:w-3/5 h-auto relative rounded-lg aspect-square">
+        <Card className="max-w-[640px] hidden sm:flex w-full sm:w-3/5 h-auto relative rounded-lg aspect-square">
           <Image
             src="/MofongoJobs_pre18_G6_Headshots-16.jpg"
             alt="brunette profile pic"
@@ -90,6 +105,7 @@ export default function Home() {
           />
         </Card>
       </section>
+      <Skills />
       <section className="w-full">
         <Card className="w-full flex flex-col">
           <CardHeader className="gap-2">
@@ -101,12 +117,7 @@ export default function Home() {
               From Mechanical Engineer to Founding Fullstack Engineer
             </CardDescription>
           </CardHeader>
-          <CardContent>
-            <p>Card Content</p>
-          </CardContent>
-          <CardFooter>
-            <p>Card Footer</p>
-          </CardFooter>
+          {allExperiences}
         </Card>
       </section>
     </main>
