@@ -10,6 +10,7 @@ import {
 import ExperienceItem from "@/components/ExperienceItem";
 import EXPERIENCE_STRINGS from "@/constants/experience";
 import Skills from "@/components/Skills";
+import Link from "next/link";
 
 const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
   <ExperienceItem key={idx} {...experience} />
@@ -19,18 +20,23 @@ export default function Home() {
   return (
     <main className="container flex min-h-screen flex-col items-center gap-6 sm:p-24">
       <section>
-        <h1 className=" text-4xl text-center font-bold mb-2">
+        <h1 className="font-cal-sans text-5xl text-center font-bold mb-2">
           Leira C. Sánchez Quiñones
         </h1>
-        <h2 className="text-xl text-center mx-auto">
+        <h2 className="text-2xl text-center mx-auto">
           Fullstack Senior Software Engineer
         </h2>
-        <h2 className="text-xl text-center mx-auto">
-          React | TypeScript | JavaScript | React Native | Node | Prisma
-        </h2>
-        <h2 className="text-xl text-center mx-auto">
-          Founder at MofongoJobs.com
-        </h2>
+        <h3 className="text-xl text-center mx-auto">
+          Founder at{" "}
+          <Link
+            className="text-wrap break-words hover:underline text-violet-600"
+            href="https://www.mofongojobs.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            MofongoJobs.com
+          </Link>
+        </h3>
       </section>
       <section className="flex flex-col sm:flex-row w-full gap-4">
         <div className=" w-full sm:w-2/5 flex gap-4 flex-col justify-between">

@@ -42,7 +42,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
           {links && links.web ? (
             <li>
               <Link
-                className="hover:underline text-violet-600"
+                className="text-wrap break-words hover:underline text-violet-600"
                 href={links?.web}
               >
                 {links?.web}

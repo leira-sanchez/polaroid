@@ -1,3 +1,5 @@
+@import url('/node_modules/@calcom/font/dist/cal-sans.css');
+
 @tailwind base;
   @tailwind components;
   @tailwind utilities;

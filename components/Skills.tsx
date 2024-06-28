@@ -30,20 +30,6 @@ const Skills = () => {
             </div>
 
             <Separator orientation="vertical" />
-            <div className="flex space-x-4 text-sm">
-              <div className="border-r pr-4">
-                <h4>Frontend</h4>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  <Badge>React</Badge>
-                  <Badge>NextJS</Badge>
-                  <Badge>React Native</Badge>
-                  <Badge>Tailwind</Badge>
-                  <Badge>Styled-Components</Badge>
-                </div>
-              </div>
-            </div>
-
-            <Separator orientation="vertical" />
             <div className="flex items-center space-x-4 text-sm">
               <div className="border-r pr-4">
                 <h4>Frontend</h4>
@@ -59,14 +45,28 @@ const Skills = () => {
 
             <Separator orientation="vertical" />
             <div className="flex space-x-4 text-sm">
-              <div className="pr-4">
-                <h4>Frontend</h4>
+              <div className="border-r pr-4">
+                <h4>Backend</h4>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <Badge>React</Badge>
-                  <Badge>NextJS</Badge>
-                  <Badge>React Native</Badge>
-                  <Badge>Tailwind</Badge>
-                  <Badge>Styled-Components</Badge>
+                  <Badge className="bg-green-500">NodeJS</Badge>
+                  <Badge>Express</Badge>
+                  <Badge>PostgreSQL</Badge>
+                  <Badge>Prisma</Badge>
+                  <Badge>Django</Badge>
+                </div>
+              </div>
+            </div>
+
+            <Separator orientation="vertical" />
+            <div className="flex space-x-4 text-sm">
+              <div className="pr-4">
+                <h4>Tools</h4>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <Badge>Vercel</Badge>
+                  <Badge>Netlify</Badge>
+                  <Badge>Heroku</Badge>
+                  <Badge>AWS</Badge>
+                  <Badge>OpenAI API</Badge>
                 </div>
               </div>
             </div>
