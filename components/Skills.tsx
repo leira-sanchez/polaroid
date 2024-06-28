@@ -22,7 +22,7 @@ const Skills = () => {
               <div className="border-r  pr-4">
                 <h4 className="whitespace-nowrap">Programming Languages</h4>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <Badge>JavaScript</Badge>
+                  <Badge className="bg-yellow-400 text-black">JavaScript</Badge>
                   <Badge>TypeScript</Badge>
                   <Badge>Python</Badge>
                 </div>
@@ -53,6 +53,21 @@ const Skills = () => {
                   <Badge>PostgreSQL</Badge>
                   <Badge>Prisma</Badge>
                   <Badge>Django</Badge>
+                  <Badge>OpenAI API</Badge>
+                  <Badge>Supabase</Badge>
+                </div>
+              </div>
+            </div>
+
+            <Separator orientation="vertical" />
+            <div className="flex space-x-4 text-sm">
+              <div className="border-r pr-4">
+                <h4>DevOps</h4>
+                <div className="flex flex-wrap gap-2 mt-2">
+                  <Badge>Vercel</Badge>
+                  <Badge>Netlify</Badge>
+                  <Badge>Heroku</Badge>
+                  <Badge>AWS</Badge>
                 </div>
               </div>
             </div>
@@ -62,11 +77,10 @@ const Skills = () => {
               <div className="pr-4">
                 <h4>Tools</h4>
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <Badge>Vercel</Badge>
-                  <Badge>Netlify</Badge>
-                  <Badge>Heroku</Badge>
-                  <Badge>AWS</Badge>
-                  <Badge>OpenAI API</Badge>
+                  <Badge>Git</Badge>
+                  <Badge>Github</Badge>
+                  <Badge>Figma</Badge>
+                  <Badge>Agile</Badge>
                 </div>
               </div>
             </div>
