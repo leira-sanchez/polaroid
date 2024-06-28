@@ -17,7 +17,7 @@ const Skills = () => {
           </div>
 
           <Separator className="my-4" />
-          <div className="w-full justify-evenly flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+          <div className="w-full flex justify-evenly flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
             <div className="flex space-x-4 text-sm">
               <div className="w-full pl-4">
                 <h4 className="whitespace-nowrap">Programming Languages</h4>
@@ -118,7 +118,7 @@ const Skills = () => {
             </div>
 
             <Separator orientation="vertical" />
-            <div className="flex space-x-4 text-sm">
+            <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full flex-shrink sm:border-l pl-4">
                 <h4>Frontend</h4>
                 <div className="grid w-full grid-cols-2 sm:grid-cols-1 gap-2 mt-2">
@@ -277,7 +277,7 @@ const Skills = () => {
             </div>
 
             <Separator orientation="vertical" />
-            <div className="flex space-x-4 text-sm">
+            <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full sm:border-l pl-4">
                 <h4>Backend</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 mt-2">
@@ -413,9 +413,9 @@ const Skills = () => {
                 </div>
               </div>
             </div>
-            <Separator orientation="vertical" />
 
-            <div className="flex space-x-4 text-sm">
+            <Separator orientation="vertical" />
+            <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full sm:border-l pl-4">
                 <h4>DevOps</h4>
                 <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 mt-2">
@@ -486,7 +486,7 @@ const Skills = () => {
             </div>
 
             <Separator orientation="vertical" />
-            <div className="flex space-x-4 text-sm">
+            <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full sm:border-l pl-4">
                 <h4>Tools</h4>
                 <div className="grid w-full sm:grid-cols-1 grid-cols-2 gap-2 mt-2">

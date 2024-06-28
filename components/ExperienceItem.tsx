@@ -35,7 +35,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
           </div>
         </div>
       </div>
-      <div>
+      <div className={`${isLast ? "mb-4" : ""}`}>
         <ul className="list-disc sm:pl-4 list-inside space-y-2 text-gray-700">
           {responsibilities?.map((responsibility: string) => (
             <li key={responsibility}>
