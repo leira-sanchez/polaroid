@@ -8,6 +8,8 @@ interface ExperienceItemProps {
   duration: string;
   isLast?: boolean;
   jobTitle: string;
+  isSamePrevCompany: boolean;
+  isSameNextCompany: boolean;
   responsibilities: string[];
   links?: {
     web?: string;
@@ -23,12 +25,16 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
   jobTitle,
   links,
   responsibilities,
+  isSamePrevCompany,
+  isSameNextCompany,
 }) => {
   return (
     <div className="max-w-full px-6 pt-6 ">
       <div className="pb-2">
         <div className="flex flex-col justify-between items-center">
-          <h4 className="text-lg text-left w-full font-bold">{company}</h4>
+          {!isSamePrevCompany && (
+            <h4 className="text-lg text-left w-full font-bold">{company}</h4>
+          )}
           <div className="flex flex-col sm:flex-row gap-2 mb-2 justify-between w-full text-gray-600">
             <p className="text-md italic text-gray-600">{jobTitle}</p>
             <p>{duration}</p>
@@ -63,7 +69,9 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
           ) : null}
         </ul>
       </div>
-      {!isLast && <Separator className="mt-4" />}
+      {!isLast && !isSamePrevCompany && !isSameNextCompany && (
+        <Separator className="mt-4" />
+      )}
     </div>
   );
 };
