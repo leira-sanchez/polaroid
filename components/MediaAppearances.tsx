@@ -79,7 +79,7 @@ const allAppearances = MEDIA_APPEARANCES.map(
         <CardContent className="p-4 justify-between">
           <div className="flex flex-col gap-2">
             <div className="flex items-center gap-2">
-              <PodcastIcon className="h-5 w-5 text-primary" />
+              <PodcastIcon />
               <span className="text-sm font-medium">
                 {formatString(type)}:{" "}
                 <Link

@@ -1,7 +1,6 @@
-function ArrowRightIcon(props) {
+function ArrowRightIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -18,10 +17,9 @@ function ArrowRightIcon(props) {
   );
 }
 
-function CalendarIcon(props) {
+function CalendarIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -40,10 +38,9 @@ function CalendarIcon(props) {
   );
 }
 
-function GlobeIcon(props) {
+function GlobeIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -61,13 +58,12 @@ function GlobeIcon(props) {
   );
 }
 
-function PodcastIcon(props) {
+function PodcastIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
+      width="20"
+      height="20"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -83,10 +79,9 @@ function PodcastIcon(props) {
   );
 }
 
-function RadioReceiverIcon(props) {
+function RadioReceiverIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
@@ -105,10 +100,9 @@ function RadioReceiverIcon(props) {
   );
 }
 
-function TvIcon(props) {
+function TvIcon() {
   return (
     <svg
-      {...props}
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"
