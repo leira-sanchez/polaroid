@@ -64,6 +64,7 @@ export default function Home() {
             href="https://www.mofongojobs.com"
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Visit MofongoJobs.com"
           >
             MofongoJobs.com
           </Link>
@@ -155,6 +156,7 @@ export default function Home() {
                       href="https://www.linkedin.com/in/leirasanchez"
                       target="_blank"
                       rel="noreferrer"
+                      aria-label="Visit Leira's profile on LinkedIn"
                     >
                       <svg
                         width="20"
@@ -172,9 +174,10 @@ export default function Home() {
                       </svg>
                     </Link>
                     <Link
-                      href="https://www.linkedin.com/in/leirasanchez"
+                      href="https://x.com/mechengsanchez"
                       target="_blank"
                       rel="noreferrer"
+                      aria-label="Visit Leira's profile on Twitter/X"
                     >
                       <svg
                         width="20"
@@ -195,6 +198,7 @@ export default function Home() {
                       href="https://github.com/leira-sanchez"
                       target="_blank"
                       rel="noreferrer"
+                      aria-label="Visit Leira's profile on GitHub"
                     >
                       <svg
                         width="20"
