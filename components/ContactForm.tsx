@@ -2,8 +2,6 @@
 
 import React, { useState, useEffect } from "react";
 import {
-  Dialog,
-  DialogTrigger,
   DialogContent,
   DialogHeader,
   DialogTitle,
@@ -188,8 +186,10 @@ const ContactForm = ({ open }: { open: boolean }) => {
             />
             {errors.message && <p className="text-red-500">{errors.message}</p>}
           </div>
-          <DialogFooter>
-            <Button type="submit">Submit</Button>
+          <DialogFooter className="gap-2">
+            <Button type="submit" className="bg-violet-500 hover:bg-violet-400">
+              Submit
+            </Button>
             <DialogClose asChild>
               <Button variant="outline" type="button" onClick={resetForm}>
                 Cancel
