@@ -104,16 +104,16 @@ const allAppearances = MEDIA_APPEARANCES.map(
             </h3>
             <p className="text-muted-foreground line-clamp-2">{summary}</p>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <CalendarIcon className="h-4 w-4" />
+              <CalendarIcon />
               <span>{publishDate}</span>
               <Separator orientation="vertical" className="h-4" />
-              <GlobeIcon className="h-4 w-4" />
+              <GlobeIcon />
               <span>{language === "en" ? "English" : "Español"}</span>
             </div>
             <div className="flex gap-2 items-center">
               <p className="inline-flex items-center gap-2 font-medium text-primary">
                 Listen Now
-                <ArrowRightIcon className="h-4 w-4" />
+                <ArrowRightIcon />
               </p>
               {links?.spotify && (
                 <Link
