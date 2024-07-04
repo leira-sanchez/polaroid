@@ -221,7 +221,7 @@ const MediaAppearances = () => {
         <CardDescription>Podcasts, Events, TV, Radio, etc.</CardDescription>
       </CardHeader>
       <CardContent>
-        <ul className="flex flex-col sm:flex-row gap-4">{allAppearances}</ul>
+        <ul className="flex flex-col md:flex-row gap-4">{allAppearances}</ul>
       </CardContent>
     </Card>
   );
