@@ -14,7 +14,7 @@ import Link from "next/link";
 import Education from "@/components/Education";
 import { Separator } from "@/components/ui/separator";
 import { getCalApi } from "@calcom/embed-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import MediaAppearances from "@/components/MediaAppearances";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -40,6 +40,8 @@ const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
 ));
 
 export default function Home() {
+  const [isOpen, setIsOpen] = useState<boolean>(false);
+
   useEffect(() => {
     (async function () {
       const cal = await getCalApi();
@@ -218,7 +220,7 @@ export default function Home() {
                         ></path>
                       </svg>
                     </Link>
-                    <Dialog>
+                    <Dialog onOpenChange={setIsOpen}>
                       <DialogTrigger asChild className="cursor-pointer">
                         <svg
                           width="20"
@@ -235,7 +237,7 @@ export default function Home() {
                           ></path>
                         </svg>
                       </DialogTrigger>
-                      <ContactForm />
+                      <ContactForm open={isOpen} />
                     </Dialog>
                   </p>
                 </div>
