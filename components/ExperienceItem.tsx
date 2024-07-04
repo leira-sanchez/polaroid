@@ -78,7 +78,7 @@ const CompanyLogos: { [key: string]: JSX.Element } = {
           y2="16.0001"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#6900BC"></stop>
+          <stop stopColor="#6900BC"></stop>
           <stop offset="1" stopColor="#DA01BE"></stop>
         </linearGradient>
       </defs>

@@ -30,8 +30,8 @@ export default function RootLayout({
       <Head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </Head>
-      <body className={inter.className}>
-        <NavigationMenu>
+      <body className={inter.className + " bg-[#f5f5f9]"}>
+        {/* <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger>About Me</NavigationMenuTrigger>
@@ -40,7 +40,7 @@ export default function RootLayout({
               </NavigationMenuContent>
             </NavigationMenuItem>
           </NavigationMenuList>
-        </NavigationMenu>
+        </NavigationMenu> */}
 
         <>{children}</>
       </body>
