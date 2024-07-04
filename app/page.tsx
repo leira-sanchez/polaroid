@@ -15,6 +15,7 @@ import Education from "@/components/Education";
 import { Separator } from "@/components/ui/separator";
 import { getCalApi } from "@calcom/embed-react";
 import { useEffect } from "react";
+import MediaAppearances from "@/components/MediaAppearances";
 
 const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
   <ExperienceItem
@@ -252,6 +253,7 @@ export default function Home() {
         </Card>
       </section>
       <Skills />
+      <MediaAppearances />
       <section className="w-full">
         <Card className="w-full flex flex-col">
           <CardHeader className="gap-2 pb-0">
