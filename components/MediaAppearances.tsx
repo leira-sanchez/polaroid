@@ -19,7 +19,6 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
-const domParser = new DOMParser();
 
 function formatString(input: string): string {
   if (input.toLowerCase() === "tv") {
@@ -53,16 +52,19 @@ const allAppearances = MEDIA_APPEARANCES.map(
     title,
     publishDate,
   }) => {
-    const mediaIframeDoc =
-      links?.iframe && domParser.parseFromString(links?.iframe, "text/html");
-    const mediaIframeHtml = mediaIframeDoc && mediaIframeDoc.body.innerHTML;
     return (
       <Card key={title} className="w-full">
-        {links?.iframe && mediaIframeDoc ? (
-          <div
+        {links?.iframe ? (
+          <iframe
             className="relative overflow-hidden rounded-t-lg"
-            dangerouslySetInnerHTML={{ __html: mediaIframeHtml! }}
-          />
+            width="100%"
+            src={links.iframe}
+            title={`${title} on YouTube`}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
         ) : (
           <div className="w-full rounded-t-lg relative h-40">
             <Image
