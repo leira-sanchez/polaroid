@@ -53,17 +53,15 @@ const allAppearances = MEDIA_APPEARANCES.map(
     title,
     publishDate,
   }) => {
-    const mediaIframeDoc = domParser.parseFromString(
-      links?.iframe,
-      "text/html"
-    );
-    const mediaIframeHtml = mediaIframeDoc.body.innerHTML;
+    const mediaIframeDoc =
+      links?.iframe && domParser.parseFromString(links?.iframe, "text/html");
+    const mediaIframeHtml = mediaIframeDoc && mediaIframeDoc.body.innerHTML;
     return (
       <Card key={title} className="w-full">
-        {links?.iframe ? (
+        {links?.iframe && mediaIframeDoc ? (
           <div
             className="relative overflow-hidden rounded-t-lg"
-            dangerouslySetInnerHTML={{ __html: mediaIframeHtml }}
+            dangerouslySetInnerHTML={{ __html: mediaIframeHtml! }}
           />
         ) : (
           <div className="w-full rounded-t-lg relative h-40">
