@@ -22,6 +22,17 @@ const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
     isLast={idx === EXPERIENCE_STRINGS.length - 1}
     key={idx}
     {...experience}
+    isSamePrevCompany={
+      (idx > 0 && EXPERIENCE_STRINGS[idx - 1].company) === experience.company
+        ? true
+        : false
+    }
+    isSameNextCompany={
+      (idx < EXPERIENCE_STRINGS.length - 1 &&
+        EXPERIENCE_STRINGS[idx + 1].company) === experience.company
+        ? true
+        : false
+    }
   />
 ));
 
