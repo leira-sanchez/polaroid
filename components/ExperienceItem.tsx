@@ -127,9 +127,11 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
       <div className="pb-2">
         <div className="flex flex-col justify-between items-center">
           {!isSamePrevCompany && (
-            <div className="flex gap-4 w-full items-center">
+            <div className="flex flex-col sm:flex-row gap-4 w-full items-center">
               {CompanyLogos[company]}
-              <h4 className="text-lg text-left w-full font-bold">{company}</h4>
+              <h4 className="text-lg text-center sm:text-left w-full font-bold">
+                {company}
+              </h4>
             </div>
           )}
           <div className="flex flex-col sm:flex-row gap-2 mb-2 justify-between w-full text-gray-600">

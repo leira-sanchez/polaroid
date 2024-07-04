@@ -76,7 +76,6 @@ const allAppearances = MEDIA_APPEARANCES.map(
               className="rounded-t-lg"
             />
           </div>
-          // <img src={image} alt={imageAlt} className="max-w-1/3" />
         )}
         <CardContent className="p-4 justify-between">
           <div className="flex flex-col gap-2">
