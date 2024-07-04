@@ -21,7 +21,7 @@ const Skills = () => {
             <div className="flex space-x-4 text-sm">
               <div className="w-full pl-4">
                 <h4 className="whitespace-nowrap">Programming Languages</h4>
-                <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 mt-2">
+                <div className="grid grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   <div className="flex items-center gap-1">
                     <span className="shadow-sm border-dashed max-w-fit  p-1 rounded-md border">
                       <svg
@@ -121,7 +121,7 @@ const Skills = () => {
             <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full flex-shrink sm:border-l pl-4">
                 <h4>Frontend</h4>
-                <div className="grid w-full grid-cols-2 sm:grid-cols-1 gap-2 mt-2">
+                <div className="grid w-full grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   <div className="flex items-center gap-1">
                     <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
@@ -280,7 +280,7 @@ const Skills = () => {
             <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full sm:border-l pl-4">
                 <h4>Backend</h4>
-                <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 mt-2">
+                <div className="grid grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   <div className="flex items-center gap-1">
                     <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
@@ -418,7 +418,7 @@ const Skills = () => {
             <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full sm:border-l pl-4">
                 <h4>DevOps</h4>
-                <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 mt-2">
+                <div className="grid grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   {/* <div className="flex flex-wrap flex-col sm:flex-row gap-2 mt-2"> */}
                   <div className="flex items-center gap-1">
                     <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
@@ -489,8 +489,7 @@ const Skills = () => {
             <div className="flex flex-grow space-x-4 text-sm">
               <div className="w-full sm:border-l pl-4">
                 <h4>Tools</h4>
-                <div className="grid w-full sm:grid-cols-1 grid-cols-2 gap-2 mt-2">
-                  {/* <div className="flex flex-col sm:flex-row flex-wrap gap-2 mt-2"> */}
+                <div className="grid w-full md:grid-cols-1 grid-cols-2 gap-2 mt-2">
                   <div className="flex items-center gap-1">
                     <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
