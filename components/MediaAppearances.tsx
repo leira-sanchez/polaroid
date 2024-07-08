@@ -1,5 +1,4 @@
 "use client";
-import "lite-youtube-embed";
 import "lite-youtube-embed/src/lite-yt-embed.css";
 
 import {
@@ -22,18 +21,6 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
-
-// Extend the JSX.IntrinsicElements interface inline for this component file
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "lite-youtube": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      > & { videoid: string };
-    }
-  }
-}
 
 function formatString(input: string): string {
   if (input.toLowerCase() === "tv") {

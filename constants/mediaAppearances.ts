@@ -12,7 +12,10 @@ type MediaAppearances = {
     applePodcasts?: Url;
     site: Url;
     youtube?: string;
+<<<<<<< HEAD
     youtubeId?: string;
+=======
+>>>>>>> 3864ccb (removed lite-youtube-embed)
     iframe?: string;
   };
   mediaLink: string;
