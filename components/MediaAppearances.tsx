@@ -1,4 +1,7 @@
 "use client";
+import "lite-youtube-embed";
+import "lite-youtube-embed/src/lite-yt-embed.css";
+
 import {
   Card,
   CardContent,
@@ -19,6 +22,18 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
+
+// Extend the JSX.IntrinsicElements interface inline for this component file
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "lite-youtube": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      > & { videoid: string };
+    }
+  }
+}
 
 function formatString(input: string): string {
   if (input.toLowerCase() === "tv") {
@@ -54,18 +69,22 @@ const allAppearances = MEDIA_APPEARANCES.map(
   }) => {
     return (
       <Card key={title} className="w-full">
-        {links?.iframe ? (
-          <iframe
-            className="relative overflow-hidden rounded-t-lg aspect-video "
-            width="100%"
-            src={links.iframe}
-            title={`${title} on YouTube`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-            loading="lazy"
-          ></iframe>
+        {links?.youtube && links?.youtubeId ? (
+          <lite-youtube
+            videoid={links.youtubeId}
+            style={{
+              backgroundImage: `url('https://i.ytimg.com/vi/${links.youtubeId}/hqdefault.jpg')`,
+              borderTopLeftRadius: "0.5rem",
+              borderTopRightRadius: "0.5rem",
+              aspectRatio: 16 / 9,
+              position: "relative",
+            }}
+            className="relative rounded-t-lg aspect-video w-full h-full"
+          >
+            <a href={links.youtube!} title={`${title} on YouTube`}>
+              <span className="sr-only">{title}</span>
+            </a>
+          </lite-youtube>
         ) : (
           <div className="w-full rounded-t-lg relative aspect-video">
             <Image
