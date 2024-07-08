@@ -1,4 +1,5 @@
 "use client";
+import "lite-youtube-embed";
 import {
   Card,
   CardContent,
@@ -19,6 +20,18 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
+
+// Extend the JSX.IntrinsicElements interface inline for this component file
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      "lite-youtube": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      > & { videoid: string };
+    }
+  }
+}
 
 function formatString(input: string): string {
   if (input.toLowerCase() === "tv") {
@@ -55,18 +68,37 @@ const allAppearances = MEDIA_APPEARANCES.map(
     return (
       <Card key={title} className="w-full">
         {links?.iframe ? (
-          <iframe
-            className="relative overflow-hidden rounded-t-lg"
-            width="100%"
-            src={links.iframe}
-            title={`${title} on YouTube`}
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
+          <>
+            <lite-youtube
+              videoid="vizzXkJm-Gs"
+              style={{
+                backgroundImage:
+                  "url('https://i.ytimg.com/vi/vizzXkJm-Gs/hqdefault.jpg')",
+              }}
+              className="relative  rounded-t-lg aspect-video "
+            >
+              <a
+                href={links.iframe}
+                className=" "
+                title={`${title} on YouTube`}
+              >
+                <span className="invisible">{title}</span>
+              </a>
+            </lite-youtube>
+            <iframe
+              className="relative overflow-hidden rounded-t-lg aspect-video "
+              width="100%"
+              src={links.iframe}
+              title={`${title} on YouTube`}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              loading="lazy"
+            ></iframe>
+          </>
         ) : (
-          <div className="w-full rounded-t-lg relative h-40">
+          <div className="w-full rounded-t-lg relative aspect-video">
             <Image
               src={image}
               alt={imageAlt}
