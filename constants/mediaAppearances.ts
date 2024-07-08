@@ -11,7 +11,8 @@ type MediaAppearances = {
     spotify?: Url;
     applePodcasts?: Url;
     site: Url;
-    youtube?: Url;
+    youtube?: string;
+    youtubeId?: string;
     iframe?: string;
   };
   mediaLink: string;
@@ -32,6 +33,7 @@ const MEDIA_APPEARANCES: MediaAppearances[] = [
     links: {
       site: "https://www.youtube.com/watch?v=qeR1r_2hrP0",
       youtube: "https://www.youtube.com/watch?v=qeR1r_2hrP0",
+      youtubeId: "qeR1r_2hrP0",
       iframe: "https://www.youtube.com/embed/qeR1r_2hrP0?si=rm3lQmUtLdHZq20g",
       spotify:
         "https://podcasters.spotify.com/pod/show/todossomosgeeks/episodes/Leira-Snchez--Ingeniera-de-Software--Trabajar-en-Startups-y-Ganar-100k-desde-Puerto-Rico--TSG-09-e2jojj9/a-ab99iae",
@@ -73,6 +75,7 @@ const MEDIA_APPEARANCES: MediaAppearances[] = [
     links: {
       site: "https://www.cafeonabudget.com/blog/episodio-138-como-trabajar-desde-pr-con-salario-de-silicon-valley-leira-sanchez",
       youtube: "https://youtu.be/vizzXkJm-Gs?si=mJjtg663q-lXgoW9",
+      youtubeId: "vizzXkJm-Gs",
       iframe: "https://www.youtube.com/embed/vizzXkJm-Gs?si=gCo_EdiWlGxGE9Kb",
       spotify:
         "https://open.spotify.com/episode/5bdPHUXi9bfziaeoygFgbD?si=waD9lEErQd2KUDKiqMw0Uw&nd=1&dlsi=98acd81a9d824906",
