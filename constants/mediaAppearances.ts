@@ -11,7 +11,7 @@ type MediaAppearances = {
     spotify?: Url;
     applePodcasts?: Url;
     site: Url;
-    youtube?: Url;
+    youtube?: string;
     iframe?: string;
   };
   mediaLink: string;
