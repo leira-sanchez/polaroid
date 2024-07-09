@@ -1,7 +1,7 @@
 "use client";
-import "lite-youtube-embed";
 import "lite-youtube-embed/src/lite-yt-embed.css";
 
+import dynamic from "next/dynamic";
 import {
   Card,
   CardContent,
@@ -22,6 +22,7 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 
 // Extend the JSX.IntrinsicElements interface inline for this component file
 declare global {
@@ -234,6 +235,17 @@ const allAppearances = MEDIA_APPEARANCES.map(
 );
 
 const MediaAppearances = () => {
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    // Properly handle the import promise
+    const loadLiteYouTube = async () => {
+      await import("lite-youtube-embed");
+    };
+    loadLiteYouTube();
+  }, []);
+
   return (
     <Card>
       <CardHeader>
@@ -241,7 +253,9 @@ const MediaAppearances = () => {
         <CardDescription>Podcasts, Events, TV, Radio, etc.</CardDescription>
       </CardHeader>
       <CardContent>
-        <ul className="flex flex-col md:flex-row gap-4">{allAppearances}</ul>
+        {isClient && (
+          <ul className="flex flex-col md:flex-row gap-4">{allAppearances}</ul>
+        )}
       </CardContent>
     </Card>
   );
