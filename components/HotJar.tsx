@@ -1,15 +1,21 @@
 "use client";
 
-import Script from "next/script";
+import Hotjar from "@hotjar/browser";
+// import Script from "next/script";
+import { useEffect } from "react";
 
 const siteId = 5053419;
 const hotjarVersion = 6;
 
 const HotJar = () => {
+  useEffect(() => {
+    // Initialise Hotjar only client side
+    Hotjar.init(siteId, hotjarVersion);
+  }, []);
   if (siteId) return null;
   return (
-    <div>
-      <Script id="hotjar-snippet">
+    <>
+      {/* <Script id="hotjar-snippet">
         {`
           (function(h,o,t,j,a,r){
               h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -20,8 +26,8 @@ const HotJar = () => {
               a.appendChild(r);
           })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         `}
-      </Script>
-    </div>
+      </Script> */}
+    </>
   );
 };
 
