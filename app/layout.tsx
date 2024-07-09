@@ -1,16 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
 import Head from "next/head";
-import { cn } from "@/lib/utils";
+
+import Hotjar from "@hotjar/browser";
+
+const siteId = 5053419;
+const hotjarVersion = 6;
+
+Hotjar.init(siteId, hotjarVersion);
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -31,17 +29,6 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" type="image/png" />
       </Head>
       <body className={inter.className + " bg-[#f5f5f9]"}>
-        {/* <NavigationMenu>
-          <NavigationMenuList>
-            <NavigationMenuItem>
-              <NavigationMenuTrigger>About Me</NavigationMenuTrigger>
-              <NavigationMenuContent>
-                <NavigationMenuLink>LinkedIn</NavigationMenuLink>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu> */}
-
         <>{children}</>
       </body>
     </html>

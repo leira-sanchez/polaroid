@@ -98,6 +98,26 @@ const MEDIA_APPEARANCES: MediaAppearances[] = [
       "Episodio 138: ¿Cómo Trabajar Desde PR con Salario de Silicon Valley? | Leira Sánchez",
     publishDate: "Feb 23, 2023",
   },
+  {
+    type: "event",
+    image:
+      "https://yt3.ggpht.com/ytc/AIdro_mICLNKofgViVlj_lQiUAmxQkUcFgF9JkCTepVf2bwNOQ=s88-c-k-c0x00ffffff-no-rj",
+    imageAlt:
+      "Logo de Indie Hackers PR - cuadro azul con las letras IH y la bandera de PR",
+    language: "es",
+    links: {
+      site: "https://www.cafeonabudget.com/blog/episodio-138-como-trabajar-desde-pr-con-salario-de-silicon-valley-leira-sanchez",
+      youtube: "https://www.youtube.com/watch?v=nQFd_VvKxQI",
+      youtubeId: "nQFd_VvKxQI",
+      iframe: "https://www.youtube.com/embed/nQFd_VvKxQI?si=3w6t6Un_op0vzjiF",
+    },
+    mediaLink: "https://www.indiehackerspr.com/",
+    mediaTitle: "Indie Hackers PR",
+    summary: `Presentación de Leira Sánchez Quiñones para la comunidad de Indie Hackers Puerto Rico. `,
+    title:
+      "MofongoJobs, la plataforma para encontrar trabajos en tecnología que puedes hacer desde casa y PR",
+    publishDate: "Feb 14, 2023",
+  },
 ];
 
 export default MEDIA_APPEARANCES;
