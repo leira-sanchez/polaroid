@@ -2,8 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import HotJar from "@/components/HotJar";
+import Hotjar from "@hotjar/browser";
+import { useEffect } from "react";
 
+const siteId = 5053419;
+const hotjarVersion = 6;
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,15 +20,16 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  useEffect(() => {
+    // Initialise Hotjar only client side
+    Hotjar.init(siteId, hotjarVersion);
+  }, []);
   return (
     <html lang="en">
       <Head>
         <link rel="icon" href="/favicon.png" type="image/png" />
       </Head>
-      <body className={inter.className + " bg-[#f5f5f9]"}>
-        {children}
-        <HotJar />
-      </body>
+      <body className={inter.className + " bg-[#f5f5f9]"}>{children}</body>
     </html>
   );
 }

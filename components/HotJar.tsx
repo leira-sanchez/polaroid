@@ -1,6 +1,5 @@
 "use client";
 
-import Hotjar from "@hotjar/browser";
 import Script from "next/script";
 
 const siteId = 5053419;
