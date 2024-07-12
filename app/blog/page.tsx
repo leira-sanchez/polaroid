@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { client } from "../../tina/__generated__/client";
-import { Post, PostConnectionQuery } from "@/tina/__generated__/types";
+import { Post } from "@/tina/__generated__/types";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -10,25 +10,56 @@ import { Card } from "@/components/ui/card";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
+const fetchAllBlogPosts = async () => {
+  const { data } = await client.queries.postConnection();
+  const posts = data?.postConnection?.edges
+    ?.map((edge) => edge?.node)
+    .filter(Boolean);
+  return posts as Post[];
+};
+
 const BlogHome = () => {
-  const [allBlogs, setAllBlogs] = useState<Post[]>([]);
-  const [selectedTags, setSelectedTags] = useState([]);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<Post[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
   const router = useRouter();
 
   useEffect(() => {
-    const fetchAllBlogPosts = async () => {
-      const { data } = await client.queries.postConnection();
-      const posts = data?.postConnection?.edges?.map((post) => {
-        return post?.node;
-      });
-      setAllBlogs(posts);
+    const fetchPosts = async () => {
+      const allPosts = await fetchAllBlogPosts();
+      setPosts(allPosts);
+      setFilteredPosts(allPosts);
+
+      // Extract and set unique tags
+      const allTags = Array.from(
+        new Set(allPosts.flatMap((post) => post.tags ?? []))
+      );
+      setTags(allTags as any);
     };
-    try {
-      fetchAllBlogPosts();
-    } catch (error) {
-      console.error("Failed to fetch all blogs");
-    }
+
+    fetchPosts();
   }, []);
+
+  useEffect(() => {
+    if (selectedTags.length === 0) {
+      setFilteredPosts(posts);
+    } else {
+      setFilteredPosts(
+        posts.filter((post) =>
+          selectedTags.every((tag) => post.tags?.includes(tag))
+        )
+      );
+    }
+  }, [selectedTags, posts]);
+
+  const handleTagClick = (tag: string) => {
+    setSelectedTags((prevSelectedTags) =>
+      prevSelectedTags.includes(tag)
+        ? prevSelectedTags.filter((t) => t !== tag)
+        : [...prevSelectedTags, tag]
+    );
+  };
   return (
     <>
       <section className="w-full bg-white py-12 md:py-24 lg:py-32">
@@ -45,8 +76,8 @@ const BlogHome = () => {
               We're Here for a Good Time
             </h1>
             <p className="text-muted-foreground md:text-xl">
-              Entrepreneurship, Puerto Rican culture, tech, and more—embrace the
-              journey in Spanglish
+              Entrepreneurship, Puerto Rican culture, tech, and more — embrace
+              the journey in Spanglish
             </p>
             <form className="flex gap-2">
               <Input
@@ -63,23 +94,7 @@ const BlogHome = () => {
         <div className="mb-8">
           <h2 className="text-2xl font-bold mb-4">Filter by Tag</h2>
           <div className="flex flex-wrap gap-2">
-            {[
-              "react",
-              "hooks",
-              "css",
-              "grid",
-              "performance",
-              "optimization",
-              "design",
-              "trends",
-              "accessibility",
-              "inclusive",
-              "javascript",
-              "modern",
-              "serverless",
-              "cloud",
-              "future",
-            ].map((tag) => {
+            {tags?.map((tag) => {
               const includesTag = selectedTags.includes(tag) ? true : false;
               return (
                 <Button
@@ -88,22 +103,16 @@ const BlogHome = () => {
                   }`}
                   key={tag}
                   variant={selectedTags.includes(tag) ? "default" : "outline"}
-                  onClick={() => {
-                    if (selectedTags.includes(tag)) {
-                      setSelectedTags(selectedTags.filter((t) => t !== tag));
-                    } else {
-                      setSelectedTags([...selectedTags, tag]);
-                    }
-                  }}
+                  onClick={() => handleTagClick(tag)}
                 >
-                  {tag}
+                  #{tag}
                 </Button>
               );
             })}
           </div>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {allBlogs.map((post, index) => (
+          {filteredPosts.map((post, index) => (
             <Card key={index} className="rounded-lg overflow-hidden shadow-lg">
               {post?.image && (
                 <img
@@ -128,6 +137,7 @@ const BlogHome = () => {
                 <div className="mt-4 flex flex-wrap gap-2">
                   {post?.tags?.map((tag, index) => (
                     <Badge
+                      onClick={() => handleTagClick(tag as any)}
                       variant="outline"
                       key={index}
                       className="border border-violet-500 text-black hover:bg-violet-500 hover:text-white hover:cursor-pointer"
