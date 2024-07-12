@@ -52,8 +52,13 @@ export default defineConfig({
             label: "Summary",
           },
           {
+            type: "string",
+            name: "publishDate",
+            label: "PublishDate",
+          },
+          {
             type: "image",
-            name: "iamge",
+            name: "image",
             label: "Image",
           },
           {

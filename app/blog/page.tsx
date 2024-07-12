@@ -6,9 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const BlogHome = () => {
   const [allBlogs, setAllBlogs] = useState<Post[]>([]);
+  const [selectedTags, setSelectedTags] = useState([]);
+  const router = useRouter();
+
   useEffect(() => {
     const fetchAllBlogPosts = async () => {
       const { data } = await client.queries.postConnection();
@@ -73,49 +79,71 @@ const BlogHome = () => {
               "serverless",
               "cloud",
               "future",
-            ].map((tag) => (
-              <Button
-                className="bg-violet-500"
-                key={tag}
-                //   variant={selectedTags.includes(tag) ? "primary" : "outline"}
-                //   onClick={() => {
-                //     if (selectedTags.includes(tag)) {
-                //       setSelectedTags(selectedTags.filter((t) => t !== tag));
-                //     } else {
-                //       setSelectedTags([...selectedTags, tag]);
-                //     }
-                //   }}
-              >
-                {tag}
-              </Button>
-            ))}
+            ].map((tag) => {
+              const includesTag = selectedTags.includes(tag) ? true : false;
+              return (
+                <Button
+                  className={`border-violet-500 hover:bg-violet-500 hover:text-white ${
+                    includesTag && "bg-violet-500"
+                  }`}
+                  key={tag}
+                  variant={selectedTags.includes(tag) ? "default" : "outline"}
+                  onClick={() => {
+                    if (selectedTags.includes(tag)) {
+                      setSelectedTags(selectedTags.filter((t) => t !== tag));
+                    } else {
+                      setSelectedTags([...selectedTags, tag]);
+                    }
+                  }}
+                >
+                  {tag}
+                </Button>
+              );
+            })}
           </div>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {allBlogs.map((post, index) => (
-            <div key={index} className="rounded-lg overflow-hidden shadow-lg">
-              <img
-                src="/placeholder.svg"
-                alt="Blog Post Image"
-                width={400}
-                height={225}
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4 bg-background">
-                <h3 className="text-lg font-semibold mb-2">{post.title}</h3>
+            <Card key={index} className="rounded-lg overflow-hidden shadow-lg">
+              {post?.image && (
+                <img
+                  src={post?.image}
+                  alt="Blog Post Image"
+                  width={400}
+                  height={225}
+                  className="w-full rounded-t-lg aspect-video h-48 object-cover hover:cursor-pointer"
+                  onClick={() => router.push(`/${post?.slug}`)}
+                />
+              )}
+              <div className="p-4 flex flex-col bg-background gap-2">
+                <Link href={`/${post?.slug}`}>
+                  <h3 className="text-lg font-semibold mb-2 hover:underline">
+                    {post.title}
+                  </h3>
+                </Link>
+                <h4 className="text-sm text-gray-400 text-right">
+                  {post?.publishDate}
+                </h4>
                 <p className="text-muted-foreground text-sm">{post?.summary}</p>
-                {/* <div className="mt-4 flex flex-wrap gap-2">
-                {post?.tags?.map((tag, index) => (
-                  <Badge
-                    key={index}
-                    className="bg-primary text-primary-foreground"
-                  >
-                    {tag}
-                  </Badge>
-                ))}
-              </div> */}
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {post?.tags?.map((tag, index) => (
+                    <Badge
+                      variant="outline"
+                      key={index}
+                      className="border border-violet-500 text-black hover:bg-violet-500 hover:text-white hover:cursor-pointer"
+                    >
+                      #{tag}
+                    </Badge>
+                  ))}
+                </div>
+                <Link
+                  className="text-sm text-violet-500 hover:underline w-full text-right block"
+                  href={`/${post?.slug}`}
+                >
+                  Read More
+                </Link>
               </div>
-            </div>
+            </Card>
           ))}
         </div>
         <div className="mt-8 flex justify-center">
