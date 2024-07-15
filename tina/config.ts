@@ -64,8 +64,8 @@ export default defineConfig({
           {
             type: "string",
             name: "tags",
-            label: "Tags",
-            list: true, // This makes the field a list of strings
+            label: "tags",
+            list: true,
           },
           {
             type: "string",

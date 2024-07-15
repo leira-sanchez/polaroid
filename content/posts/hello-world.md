@@ -1,5 +1,8 @@
 ---
 title: Hello, World!
+slug: "hello-world"
+tags:
+  - "puerto-rico"
 ---
 
 ## Hello World!
