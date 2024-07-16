@@ -87,11 +87,11 @@ const BlogHome = () => {
           {filteredPosts.map((post, index) => (
             <Card key={index} className="rounded-lg overflow-hidden shadow-lg">
               {post?.image && (
-                <img
+                <Image
                   src={post?.image}
                   alt="Blog Post Image"
-                  width={400}
-                  height={209}
+                  width={1200}
+                  height={628}
                   className="w-full rounded-t-lg aspect-[1200/628] h-48 object-cover hover:cursor-pointer"
                   onClick={() => router.push(`/blog/${post?.slug}`)}
                 />
