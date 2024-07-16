@@ -21,7 +21,7 @@ export default function BlogLayout({
           />
           <div className="space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
-              We're Here for a Good Time
+              We&apos;re Here for a Good Time
             </h1>
             <p className=" md:text-xl">
               Entrepreneurship, Puerto Rican culture, tech, and more — embrace
