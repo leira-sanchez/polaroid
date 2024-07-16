@@ -75,4 +75,57 @@
     body {
       @apply bg-background text-foreground;
     }
+    div.blog-post a {
+      @apply text-purple hover:underline;
+    }
+  
+    div.blog-post p {
+      @apply text-darkGray;
+    }
+  
+    div.blog-post strong {
+      @apply text-black;
+    }
+  
+    h1 {
+      @apply text-4xl font-bold;
+    }
+  
+    h2 {
+      @apply text-2xl font-bold;
+    }
+  
+    h3 {
+      @apply text-xl font-bold;
+    }
+    h4 {
+      @apply text-lg font-bold;
+    }
+  
+    div.blog-post ul {
+      @apply list-disc text-darkGray;
+    }
+  
+    div.blog-post ol {
+      @apply list-decimal text-darkGray;
+    }
+  
+    div.blog-post li {
+      @apply ml-6;
+    }
+  
+    .job-post ul {
+      @apply list-disc text-darkGray;
+    }
+  
+    .job-post li {
+      @apply ml-6;
+    }
+  
+    .photo-credit {
+      @apply text-sm text-darkGray;
+    }
+    .photo-credit a {
+      @apply text-purple hover:underline;
+    }
   }

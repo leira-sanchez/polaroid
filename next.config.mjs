@@ -15,6 +15,7 @@ const nextConfig = {
       "images-na.ssl-images-amazon.com",
       "img.icons8.com",
       "podcast.urbital.io",
+      "res.cloudinary.com",
     ], // Add your domains here
   },
 };
