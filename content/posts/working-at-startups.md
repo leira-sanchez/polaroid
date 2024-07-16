@@ -3,7 +3,7 @@ title: 🚀 Why I love working at startups
 summary: Leaving Capital One to join a Series A startup as a Founding Frontend Engineer allowed me to work from Puerto Rico, but within six months I was laid off, learning firsthand both the high risks and rewards of early-stage startup life, including impactful work, accelerated learning, potential financial upsides, but also intense stress and financial instability.
 slug: "working-at-startups"
 publishDate: July 16, 2024
-image: /working-at-startups.jpg
+image: "/working-at-startups.jpg"
 tags:
   - startups
   - tech
