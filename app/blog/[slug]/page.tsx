@@ -23,7 +23,7 @@ const BlogPost = () => {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const blog = await fetchBlog(params.slug);
+      const blog = await fetchBlog(params.slug as string);
       setPost(blog);
     };
 

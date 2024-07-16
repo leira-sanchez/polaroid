@@ -71,6 +71,7 @@ export default defineConfig({
             type: "string",
             name: "slug",
             label: "Slug",
+            required: true,
           },
         ],
         ui: {
