@@ -91,8 +91,8 @@ const BlogHome = () => {
                   src={post?.image}
                   alt="Blog Post Image"
                   width={400}
-                  height={225}
-                  className="w-full rounded-t-lg aspect-video h-48 object-cover hover:cursor-pointer"
+                  height={209}
+                  className="w-full rounded-t-lg aspect-[1200/628] h-48 object-cover hover:cursor-pointer"
                   onClick={() => router.push(`/blog/${post?.slug}`)}
                 />
               )}

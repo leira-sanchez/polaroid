@@ -45,7 +45,7 @@ const BlogPost = () => {
             src={post.image}
             alt={post.title}
             width={1200}
-            height={688}
+            height={628}
           />
         )}
         <h1>{post.title}</h1>
