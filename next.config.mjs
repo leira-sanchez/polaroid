@@ -11,12 +11,28 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: [
-      "images-na.ssl-images-amazon.com",
-      "img.icons8.com",
-      "podcast.urbital.io",
-      "res.cloudinary.com",
-    ], // Add your domains here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images-na.ssl-images-amazon.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "img.icons8.com",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "podcast.urbital.io",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "res.cloudinary.com",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
