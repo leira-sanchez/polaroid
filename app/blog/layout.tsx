@@ -37,8 +37,8 @@ export default function BlogLayout({
       <div className="bg-white">{children}</div>
 
       <section className="w-full bg-[#f5f5f9] py-12">
-        <div className="container px-4 md:px-6">
-          <div className="max-w-2xl mx-auto text-center space-y-4">
+        <div className="container px-4 md:px-6 w-full">
+          <div className="max-w-2xl w-full mx-auto justify-center text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
               Stay Updated
             </h2>
