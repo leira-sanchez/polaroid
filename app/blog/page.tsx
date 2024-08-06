@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const fetchAllBlogPosts = async () => {
   const { data } = await client.queries.postConnection();
@@ -24,22 +24,26 @@ const BlogHome = () => {
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     const fetchPosts = async () => {
       const allPosts = await fetchAllBlogPosts();
       setPosts(allPosts);
-      setFilteredPosts(allPosts);
 
       // Extract and set unique tags
       const allTags = Array.from(
         new Set(allPosts.flatMap((post) => post.tags ?? []))
       );
       setTags(allTags as any);
+
+      // Get selected tags from URL
+      const tagsFromUrl = searchParams.getAll("tags");
+      setSelectedTags(tagsFromUrl);
     };
 
     fetchPosts();
-  }, []);
+  }, [searchParams]);
 
   useEffect(() => {
     if (selectedTags.length === 0) {
@@ -51,7 +55,12 @@ const BlogHome = () => {
         )
       );
     }
-  }, [selectedTags, posts]);
+
+    // Update URL with selected tags
+    const newSearchParams = new URLSearchParams();
+    selectedTags.forEach((tag) => newSearchParams.append("tags", tag));
+    router.push(`/blog?${newSearchParams.toString()}`, { scroll: false });
+  }, [selectedTags, posts, router]);
 
   const handleTagClick = (tag: string) => {
     setSelectedTags((prevSelectedTags) =>
@@ -60,6 +69,19 @@ const BlogHome = () => {
         : [...prevSelectedTags, tag]
     );
   };
+
+  const navigateToBlogPost = (slug: string) => {
+    const currentUrl = new URL(window.location.href);
+    const tagParams = currentUrl.searchParams.getAll("tags");
+    const queryString =
+      tagParams.length > 0
+        ? `?${tagParams
+            .map((tag) => `tags=${encodeURIComponent(tag)}`)
+            .join("&")}`
+        : "";
+    router.push(`/blog/${slug}${queryString}`);
+  };
+
   return (
     <>
       <main className="container mx-auto px-4 py-12 md:px-6 md:py-16 lg:py-20">
@@ -93,11 +115,11 @@ const BlogHome = () => {
                   width={1200}
                   height={628}
                   className="w-full rounded-t-lg aspect-[1200/628] h-48 object-cover hover:cursor-pointer"
-                  onClick={() => router.push(`/blog/${post?.slug}`)}
+                  onClick={() => navigateToBlogPost(post?.slug)}
                 />
               )}
               <div className="p-4 flex flex-col bg-background gap-2">
-                <Link href={`/blog/${post?.slug}`}>
+                <Link href="#" onClick={() => navigateToBlogPost(post?.slug)}>
                   <h3 className="text-lg font-semibold mb-2 hover:underline">
                     {post.title}
                   </h3>
@@ -110,7 +132,11 @@ const BlogHome = () => {
                 </p>
                 <Link
                   className="text-sm text-violet-500 hover:underline w-full text-right block"
-                  href={`/blog/${post?.slug}`}
+                  href="#"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    navigateToBlogPost(post?.slug);
+                  }}
                 >
                   Read More
                 </Link>

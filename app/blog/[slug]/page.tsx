@@ -3,8 +3,9 @@ import { client } from "@/tina/__generated__/client";
 import { Post } from "@/tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Image from "next/image";
-import { useParams } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 
 const fetchBlog = async (slug: string) => {
   try {
@@ -19,6 +20,8 @@ const fetchBlog = async (slug: string) => {
 
 const BlogPost = () => {
   const params = useParams();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const [post, setPost] = useState<Post | undefined | null>(null);
 
   useEffect(() => {
@@ -32,6 +35,15 @@ const BlogPost = () => {
     }
   }, [params?.slug]);
 
+  const handleBackToBlog = () => {
+    const tags = searchParams.getAll("tags");
+    const queryString =
+      tags.length > 0
+        ? `?${tags.map((tag) => `tags=${encodeURIComponent(tag)}`).join("&")}`
+        : "";
+    router.push(`/blog${queryString}`);
+  };
+
   if (!post) {
     return <div>Loading...</div>;
   }
@@ -39,6 +51,13 @@ const BlogPost = () => {
   return (
     <div className="bg-white py-6 h-full mx-auto w-full justify-center">
       <div className="container mx-auto gap-6 flex flex-col">
+        <Button
+          onClick={handleBackToBlog}
+          className="self-start mb-4"
+          variant="outline"
+        >
+          Back to Blog
+        </Button>
         {post.image && (
           <Image
             className="rounded-t-lg aspect-video"
