@@ -39,6 +39,28 @@ export default function BlogLayout({
         </div>
       </section>
       <div className="bg-white">{children}</div>
+
+      <section className="w-full bg-[#f5f5f9] py-12">
+        <div className="container px-4 md:px-6">
+          <div className="max-w-2xl mx-auto text-center space-y-4">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
+              Stay Updated
+            </h2>
+            <p className="text-xl">
+              Entrepreneurship, Puerto Rican culture, tech, and more — embrace
+              the journey in Spanglish
+            </p>
+            <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-2">
+              <Input
+                type="email"
+                placeholder="Enter your email"
+                className="max-w-sm bg-white"
+              />
+              <Button type="submit">Subscribe</Button>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
