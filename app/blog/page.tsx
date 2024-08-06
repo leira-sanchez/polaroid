@@ -124,9 +124,7 @@ const BlogHome = () => {
                     {post.title}
                   </h3>
                 </Link>
-                <h4 className="text-sm text-gray-400 text-right">
-                  {post?.publishDate}
-                </h4>
+                <p className="text-xs">{post?.publishDate}</p>
                 <p className="text-muted-foreground text-sm line-clamp-4">
                   {post?.summary}
                 </p>
