@@ -3,9 +3,17 @@ import { client } from "@/tina/__generated__/client";
 import { Post } from "@/tina/__generated__/types";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import Image from "next/image";
-import { useParams, useRouter, useSearchParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const fetchBlog = async (slug: string) => {
   try {
@@ -20,7 +28,6 @@ const fetchBlog = async (slug: string) => {
 
 const BlogPost = () => {
   const params = useParams();
-  const router = useRouter();
   const searchParams = useSearchParams();
   const [post, setPost] = useState<Post | undefined | null>(null);
 
@@ -35,13 +42,13 @@ const BlogPost = () => {
     }
   }, [params?.slug]);
 
-  const handleBackToBlog = () => {
+  const getBlogHomeUrl = () => {
     const tags = searchParams.getAll("tags");
-    const queryString =
-      tags.length > 0
-        ? `?${tags.map((tag) => `tags=${encodeURIComponent(tag)}`).join("&")}`
-        : "";
-    router.push(`/blog${queryString}`);
+    return tags.length > 0
+      ? `/blog?${tags
+          .map((tag) => `tags=${encodeURIComponent(tag)}`)
+          .join("&")}`
+      : "/blog";
   };
 
   if (!post) {
@@ -51,13 +58,26 @@ const BlogPost = () => {
   return (
     <div className="bg-white py-6 h-full mx-auto w-full justify-center">
       <div className="container mx-auto gap-6 flex flex-col">
-        <Button
-          onClick={handleBackToBlog}
-          className="self-start mb-4"
-          variant="outline"
-        >
-          Back to Blog
-        </Button>
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href="/">Home</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink asChild>
+                <Link href={getBlogHomeUrl()}>Blog</Link>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{post.title}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
         {post.image && (
           <Image
             className="rounded-t-lg aspect-video"
