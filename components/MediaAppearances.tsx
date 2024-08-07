@@ -23,6 +23,7 @@ import Link from "next/link";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { Button } from "./ui/button";
 
 // Extend the JSX.IntrinsicElements interface inline for this component file
 declare global {
@@ -238,15 +239,26 @@ const allAppearances = MEDIA_APPEARANCES.map(
 
 const MediaAppearances = () => {
   const [isClient, setIsClient] = useState(false);
+  const [visibleAppearances, setVisibleAppearances] = useState(3);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
-    // Properly handle the import promise
     const loadLiteYouTube = async () => {
       await import("lite-youtube-embed");
     };
     loadLiteYouTube();
   }, []);
+
+  const toggleAppearances = () => {
+    if (isExpanded) {
+      setVisibleAppearances(3);
+      setIsExpanded(false);
+    } else {
+      setVisibleAppearances(allAppearances.length);
+      setIsExpanded(true);
+    }
+  };
 
   return (
     <Card>
@@ -256,7 +268,18 @@ const MediaAppearances = () => {
       </CardHeader>
       <CardContent>
         {isClient && (
-          <ul className="flex flex-col md:flex-row gap-4">{allAppearances}</ul>
+          <>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {allAppearances.slice(0, visibleAppearances)}
+            </ul>
+            {allAppearances.length > 3 && (
+              <div className="mt-4 text-center">
+                <Button onClick={toggleAppearances}>
+                  {isExpanded ? "Hide" : "Show More"}
+                </Button>
+              </div>
+            )}
+          </>
         )}
       </CardContent>
     </Card>
