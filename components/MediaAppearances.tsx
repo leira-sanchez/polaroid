@@ -22,7 +22,7 @@ import { CalendarIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import { Separator } from "./ui/separator";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 
 // Extend the JSX.IntrinsicElements interface inline for this component file
@@ -239,8 +239,8 @@ const allAppearances = MEDIA_APPEARANCES.map(
 
 const MediaAppearances = () => {
   const [isClient, setIsClient] = useState(false);
-  const [visibleAppearances, setVisibleAppearances] = useState(3);
   const [isExpanded, setIsExpanded] = useState(false);
+  const additionalAppearancesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setIsClient(true);
@@ -251,14 +251,16 @@ const MediaAppearances = () => {
   }, []);
 
   const toggleAppearances = () => {
-    if (isExpanded) {
-      setVisibleAppearances(3);
-      setIsExpanded(false);
-    } else {
-      setVisibleAppearances(allAppearances.length);
-      setIsExpanded(true);
-    }
+    setIsExpanded(!isExpanded);
   };
+
+  useEffect(() => {
+    if (additionalAppearancesRef.current) {
+      additionalAppearancesRef.current.style.height = isExpanded
+        ? `${additionalAppearancesRef.current.scrollHeight}px`
+        : "0px";
+    }
+  }, [isExpanded]);
 
   return (
     <Card id="media">
@@ -270,8 +272,20 @@ const MediaAppearances = () => {
         {isClient && (
           <>
             <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-              {allAppearances.slice(0, visibleAppearances)}
+              {allAppearances.slice(0, 3)}
             </ul>
+            <div
+              ref={additionalAppearancesRef}
+              className="overflow-hidden transition-all duration-300 ease-in-out"
+              style={{
+                opacity: isExpanded ? 1 : 0,
+                height: "0px",
+              }}
+            >
+              <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+                {allAppearances.slice(3)}
+              </ul>
+            </div>
             {allAppearances.length > 3 && (
               <div className="mt-4 text-center">
                 <Button onClick={toggleAppearances}>
