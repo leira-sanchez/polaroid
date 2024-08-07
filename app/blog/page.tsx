@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog Home",
     description:
-      "Tech, startups, Puerto Rican culture, enterpreneurship, and more — embrace the journey in Spanglish",
+      "Tech, startups, Puerto Rican culture, entrepreneurship, and more — embrace the journey in Spanglish",
     type: "website",
     url: "https://leirasanchez.com/blog",
     images: [
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Blog Home",
     description:
-      "Tech, startups, Puerto Rican culture, enterpreneurship, and more — embrace the journey in Spanglish",
+      "Tech, startups, Puerto Rican culture, entrepreneurship, and more — embrace the journey in Spanglish",
     images: ["https://leirasanchez.com/ogimage-blog.jpg"],
   },
 };
