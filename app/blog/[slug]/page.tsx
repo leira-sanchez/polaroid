@@ -87,7 +87,7 @@ const BlogPost = () => {
             height={628}
           />
         )}
-        <h1>{post.title}</h1>
+        <h1 className="sm:text-4xl text-3xl">{post.title}</h1>
         <p>{post.publishDate}</p>
         <TinaMarkdown content={post.body} />
       </div>
