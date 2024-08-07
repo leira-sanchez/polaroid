@@ -49,6 +49,28 @@ const MEDIA_APPEARANCES: MediaAppearances[] = [
   },
   {
     type: "podcast",
+    image: "/dinamica-digital.png",
+    imageAlt: "Se puede ganar sobre $150,000 en Puerto Rico",
+    language: "es",
+    links: {
+      site: "https://www.instagram.com/dinamicadigital_podcast/",
+      youtube: "https://www.youtube.com/watch?v=QuHV5XzvcX4",
+      youtubeId: "QuHV5XzvcX4",
+      iframe: "https://www.youtube.com/embed/qeR1r_2hrP0?si=rm3lQmUtLdHZq20g",
+      spotify:
+        "https://open.spotify.com/episode/5fFr36YoAKCg3HHr1Gr5Fs?si=b_6J2Tr6RUanSiMkWQco3Q",
+      applePodcasts:
+        "https://podcasts.apple.com/us/podcast/1-ganar-sobre-%24100-000-de-salario-en-puerto-rico/id1744960594?i=1000654703759",
+    },
+    mediaLink: "https://www.instagram.com/dinamicadigital_podcast/",
+    mediaTitle: "Dinámica Digital",
+    summary: `En esta entrevista, me siento con Leira Sanchez, la visionaria fundadora de la innovadora plataforma de trabajo @mofongojobs. Juntos exploramos una amplia gama de temas, desde la influencia de la tecnología en el mundo laboral hasta los desafíos y ventajas del trabajo remoto en Puerto Rico. Leira comparte su inspiradora experiencia como 'solo founder' y ofrece valiosas perspectivas sobre la importancia de la transparencia salarial en el mercado laboral actual. Si estás interesado en conocer más sobre estos temas y disfrutas de conversaciones que despiertan la mente, este episodio es para ti.`,
+    title:
+      "1: Trabajo Remoto y Transparencia Salarial con Leira Sanchez de Mofongo Jobs (@mofongojobs)",
+    publishDate: "Apr 29, 2024",
+  },
+  {
+    type: "podcast",
     image:
       "https://podcast.urbital.io/assets/static/a37c24332eee1701b48011a8ffc8b3d1c63f9616a94340548ec8c22c5d8efdb3.8db9597.cd4d1bf498b40afa6320b86a1d94a4c5.png",
     imageAlt: "Un grupo de personas en una mesa",
