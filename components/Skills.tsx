@@ -4,7 +4,7 @@ import { Separator } from "./ui/separator";
 
 const Skills = () => {
   return (
-    <Card className="w-full">
+    <Card id="skills" className="w-full">
       <CardHeader>
         <CardTitle>Skills</CardTitle>
       </CardHeader>
