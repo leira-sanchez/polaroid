@@ -32,6 +32,11 @@ const nextConfig = {
         hostname: "res.cloudinary.com",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "assets.tina.io",
+        pathname: "/**",
+      },
     ],
   },
 };
