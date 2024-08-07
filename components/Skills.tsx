@@ -246,10 +246,10 @@ const Skills = () => {
                       viewBox="0 0 318 318"
                       xmlnsXlink="http://www.w3.org/1999/xlink"
                     >
-                      <g fill="none" fill-rule="evenodd">
+                      <g fill="none" fillRule="evenodd">
                         <use
                           stroke="#4A4A4A"
-                          stroke-width="8"
+                          strokeWidth="8"
                           mask="url(#b)"
                           xlinkHref="#a"
                         />
@@ -260,8 +260,8 @@ const Skills = () => {
                         <text
                           fill="#000"
                           font-family="AppleColorEmoji, Apple Color Emoji"
-                          font-size="100"
-                          letter-spacing=".5"
+                          fontSize="100"
+                          letterSpacing=".5"
                           transform="translate(38 44)"
                         >
                           <tspan x="70" y="100">
