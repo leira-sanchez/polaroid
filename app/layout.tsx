@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import HotJar from "@/components/HotJar";
-// import NavMenu from "@/components/NavMenu"; // Add this import
 import Link from "next/link";
 import {
   NavigationMenu,
