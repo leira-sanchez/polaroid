@@ -298,7 +298,7 @@ export default function Home() {
           />
         </Card>
       </section>
-      <Skills id="skills" />
+      <Skills />
       <MediaAppearances />
       <Card id="experience" className="w-full flex flex-col">
         <CardHeader className="gap-2 pb-0">
