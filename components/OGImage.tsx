@@ -11,12 +11,10 @@ export default function OGImagePreview({
   description = "Senior Full Stack Software Engineer",
 }: OGImagePreviewProps) {
   return (
-    <div className="w-[600px] h-[315px] border border-gray-300 rounded-lg overflow-hidden font-sans flex items-center justify-between p-5 bg-gradient-to-br from-blue-100 to-purple-100">
-      <div className="flex-1 mr-5">
-        <h1 className="text-2xl font-bold text-gray-800 mb-2.5">{title}</h1>
-        {description && (
-          <p className="text-base text-gray-600 mb-3">{description}</p>
-        )}
+    <div className="w-[600px] h-[315px] border border-gray-300 rounded-lg overflow-hidden font-sans flex items-center justify-evenly p-12 bg-gradient-to-br from-blue-100 to-purple-100">
+      <div className="flex-1">
+        <h1 className="text-2xl font-bold text-gray-800 mb-2">{title}</h1>
+        <p className="text-base text-gray-600 mb-1">{description}</p>
         <h2 className="text-sm text-gray-600 mb-3">
           Founder at MofongoJobs.com
         </h2>
@@ -34,13 +32,16 @@ export default function OGImagePreview({
             Tailwind
           </span>
         </div>
+        <p className="text-sm mt-2 text-gray-600 mb-3">
+          <em>leirasanchez.com</em>
+        </p>
       </div>
-      <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0">
+      <div className="w-36 mt-2 h-36 rounded-full overflow-hidden flex-shrink-0">
         <Image
           src="/MofongoJobs_pre18_G6_Headshots-16.jpg"
           alt="Profile"
-          width={128}
-          height={128}
+          width={144}
+          height={144}
           className="object-cover"
         />
       </div>

@@ -17,7 +17,6 @@ import { getCalApi } from "@calcom/embed-react";
 import { useEffect, useState } from "react";
 import MediaAppearances from "@/components/MediaAppearances";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
-import { Button } from "@/components/ui/button";
 import ContactForm from "@/components/ContactForm";
 
 const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
