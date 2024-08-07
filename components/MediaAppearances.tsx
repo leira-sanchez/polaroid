@@ -261,7 +261,7 @@ const MediaAppearances = () => {
   };
 
   return (
-    <Card>
+    <Card id="media">
       <CardHeader>
         <CardTitle>Media Appearances</CardTitle>
         <CardDescription>Podcasts, Events, TV, Radio, etc.</CardDescription>

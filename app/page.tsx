@@ -51,10 +51,17 @@ export default function Home() {
         layout: "month_view",
       });
     })();
+
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = "smooth";
+
+    return () => {
+      document.documentElement.style.scrollBehavior = "auto";
+    };
   }, []);
 
   return (
-    <main className="container flex min-h-screen flex-col items-center gap-6 sm:p-24">
+    <main className="container flex min-h-screen flex-col items-center gap-6 sm:pb-24 sm:px-24">
       <section>
         <h1 className="font-cal-sans text-5xl text-center font-bold mb-2">
           Leira C. Sánchez Quiñones
@@ -291,24 +298,22 @@ export default function Home() {
           />
         </Card>
       </section>
-      <Skills />
+      <Skills id="skills" />
       <MediaAppearances />
-      <section className="w-full">
-        <Card className="w-full flex flex-col">
-          <CardHeader className="gap-2 pb-0">
-            <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
-              ⚡️
-            </span>
-            <CardTitle>Experience</CardTitle>
-            <CardDescription>
-              From Mechanical Engineer to Founding Fullstack Engineer
-            </CardDescription>
-            <Separator />
-          </CardHeader>
+      <Card id="experience" className="w-full flex flex-col">
+        <CardHeader className="gap-2 pb-0">
+          <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
+            ⚡️
+          </span>
+          <CardTitle>Experience</CardTitle>
+          <CardDescription>
+            From Mechanical Engineer to Founding Fullstack Engineer
+          </CardDescription>
+          <Separator />
+        </CardHeader>
 
-          {allExperiences}
-        </Card>
-      </section>
+        {allExperiences}
+      </Card>
       <Education />
     </main>
   );
