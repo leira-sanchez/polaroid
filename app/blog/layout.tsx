@@ -27,8 +27,8 @@ export default function BlogLayout({
               We&apos;re Here for a Good Time
             </h1>
             <p className="md:text-xl">
-              Entrepreneurship, Puerto Rican culture, tech, and more — embrace
-              the journey in Spanglish
+              Tech, startups, entrepreneurship, Puerto Rican culture, and more —
+              embrace the journey in Spanglish
             </p>
             <SubscribeForm align="justify-start" />
           </div>
@@ -43,8 +43,8 @@ export default function BlogLayout({
               Stay Updated
             </h2>
             <p className="text-xl">
-              Entrepreneurship, Puerto Rican culture, tech, and more — embrace
-              the journey in Spanglish
+              Tech, startups, entrepreneurship, Puerto Rican culture, and more —
+              embrace the journey in Spanglish
             </p>
             <SubscribeForm />
           </div>
