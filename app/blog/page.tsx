@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://leirasanchez.com/blog",
     images: [
       {
-        url: "https://leirasanchez.com/ogimage-blog.jpg",
+        url: "https://leirasanchez.com/ogimage-blog.png",
         width: 1200,
         height: 630,
         alt: "Blog Home",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Blog Home",
     description:
       "Tech, startups, Puerto Rican culture, entrepreneurship, and more — embrace the journey in Spanglish",
-    images: ["https://leirasanchez.com/ogimage-blog.jpg"],
+    images: ["https://leirasanchez.com/ogimage-blog.png"],
   },
 };
 
