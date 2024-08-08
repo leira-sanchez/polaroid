@@ -259,7 +259,7 @@ const Skills = () => {
                         />
                         <text
                           fill="#000"
-                          font-family="AppleColorEmoji, Apple Color Emoji"
+                          fontFamily="AppleColorEmoji, Apple Color Emoji"
                           fontSize="100"
                           letterSpacing=".5"
                           transform="translate(38 44)"

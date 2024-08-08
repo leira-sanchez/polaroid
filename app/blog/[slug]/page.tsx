@@ -14,6 +14,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+import { Metadata } from "next";
 
 const fetchBlog = async (slug: string) => {
   try {
@@ -25,6 +26,38 @@ const fetchBlog = async (slug: string) => {
     console.error({ error });
   }
 };
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const post = await fetchBlog(params.slug);
+
+  if (!post) {
+    return {
+      title: "Blog Post Not Found",
+    };
+  }
+
+  return {
+    title: post.title,
+    description: post?.summary || post.title,
+    openGraph: {
+      title: post.title,
+      description: post?.summary || post.title,
+      images: post.image ? [{ url: post.image }] : [],
+      type: "article",
+      publishedTime: new Date(post.publishDate!).toISOString(),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post?.summary || post.title,
+      images: post.image ? [post.image] : [],
+    },
+  };
+}
 
 const BlogPost = () => {
   const params = useParams();
