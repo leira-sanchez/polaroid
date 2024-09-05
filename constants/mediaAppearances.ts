@@ -70,6 +70,26 @@ const MEDIA_APPEARANCES: MediaAppearances[] = [
     publishDate: "Apr 29, 2024",
   },
   {
+    type: "radio",
+    image: "",
+    imageAlt: "",
+    language: "es",
+    links: {
+      site: "https://programacionradial.pucpr.edu/atrio-de-los-gentiles/",
+      youtube: "https://www.youtube.com/watch?v=Yg5s9iXB0io",
+      youtubeId: "Yg5s9iXB0io",
+      iframe: "https://www.youtube.com/embed/Yg5s9iXB0io?si=NgPnI6wMDqZ4OTAb",
+      spotify:
+        "https://open.spotify.com/episode/0u45Tix4h3bzgsOCfRohG8?si=t829AxhwR2CWdZsfI47mRw",
+      applePodcasts: "",
+    },
+    mediaLink: "https://programacionradial.pucpr.edu/atrio-de-los-gentiles/",
+    mediaTitle: "Huella del Futuro - Atrio de los Gentiles",
+    summary: `Conoce más sobre la creadora de la plataformaMofongo Jobs`,
+    title: "Conoce más sobre la creadora de la plataforma Mofongo Jobs",
+    publishDate: "Mar 26, 2024",
+  },
+  {
     type: "podcast",
     image:
       "https://podcast.urbital.io/assets/static/a37c24332eee1701b48011a8ffc8b3d1c63f9616a94340548ec8c22c5d8efdb3.8db9597.cd4d1bf498b40afa6320b86a1d94a4c5.png",
