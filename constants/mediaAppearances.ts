@@ -92,11 +92,11 @@ const MEDIA_APPEARANCES: MediaAppearances[] = [
   {
     type: "podcast",
     image:
-      "https://podcast.urbital.io/assets/static/a37c24332eee1701b48011a8ffc8b3d1c63f9616a94340548ec8c22c5d8efdb3.8db9597.cd4d1bf498b40afa6320b86a1d94a4c5.png",
+      "https://res.cloudinary.com/dui7rveyg/image/upload/v1774114010/78c6c7ff399c645e7c364d51d9746800_024dd46401.webp?updated_at=2026-03-21T17:26:51.009Z",
     imageAlt: "Un grupo de personas en una mesa",
     language: "es",
     links: {
-      site: "https://podcast.urbital.io/episodios/s3-e9-parte-2-que-alternativas-hay-para-vivir-sin-tapon-desde-encontrar-trabajo-remoto-hasta-atender-el-componente-de-vivienda-y-urbanismo",
+      site: "https://podcast.urbital.io/episodes/s3-e9-parte-2-que-alternativas-hay-para-vivir-sin-tapon-desde-encontrar-trabajo-remoto-hasta-atender-el-componente-de-vivienda-y-urbanismo",
       spotify:
         "https://open.spotify.com/episode/38yo2T8SbBRgG6HwN4iVG3?si=FRnzMn7mRFeqmnhH0bxePQ",
       applePodcasts:
