@@ -1,5 +1,14 @@
 const EXPERIENCE_STRINGS = [
   {
+    jobTitle: "Software Engineer - Growth Engineering",
+    company: "Netflix",
+    duration: "January 2025 – present",
+    responsibilities: [],
+    links: {
+      web: "https://www.netflix.com",
+    },
+  },
+  {
     jobTitle: "Founder",
     company: "Mofongo Jobs",
     duration: "October 2022 – present",
