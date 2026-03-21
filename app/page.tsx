@@ -100,15 +100,19 @@ export default function Home() {
               <CardTitle>About Me</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex sm:grid sm:grid-cols-2 flex-col ">
-                <div className="space-y-2 mb-2">
-                  <p className="text-gray-700">
-                    📍 &nbsp;Puerto Rico (US territory)
+              <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] items-start sm:items-stretch">
+                <div className="grid gap-1">
+                  <p className="text-gray-700 min-h-7 flex items-center">
+                    📍 &nbsp;SF Bay Area, CA
                   </p>
-                  <p className="text-gray-700">🐶&nbsp; Maltipoo named Beni</p>
-                </div>
-                <div className=" flex flex-row items-baseline sm:justify-normal justify-between sm:flex-col space-y-2">
-                  <p className="flex gap-1 items-center">
+                  <p className="text-gray-700 min-h-7 flex items-center">
+                    🏡 &nbsp;Puerto Rico 🇵🇷
+                  </p>
+                  <p className="text-gray-700 min-h-7 flex items-center">
+                    🐶&nbsp; Maltipoo named Beni
+                  </p>
+                  <Separator className="my-1" />
+                  <p className="flex gap-1 items-center min-h-7">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       x="0px"
@@ -162,7 +166,7 @@ export default function Home() {
                       Let&apos;s talk
                     </button>
                   </p>
-                  <p className="text-gray-700 flex items-center gap-2">
+                  <p className="text-gray-700 flex items-center gap-2 min-h-7">
                     <Link
                       href="https://www.linkedin.com/in/leirasanchez"
                       target="_blank"
@@ -246,6 +250,16 @@ export default function Home() {
                       <ContactForm open={isOpen} />
                     </Dialog>
                   </p>
+                  <p className="min-h-7 flex items-center">Se habla español</p>
+                </div>
+                <div className="relative overflow-hidden rounded-lg border bg-slate-50 aspect-[3/4] h-full">
+                  <Image
+                    src="https://res.cloudinary.com/dui7rveyg/image/upload/v1774113735/IMG_2856_e55bae46d2.jpg?updated_at=2026-03-21T17:22:16.105Z"
+                    alt="Beni the maltipoo"
+                    fill
+                    className="object-cover"
+                    sizes="(min-width: 640px) 240px, 100vw"
+                  />
                 </div>
               </div>
             </CardContent>
@@ -265,14 +279,14 @@ export default function Home() {
               className="flex gap-2 cursor-pointer"
               onClick={() =>
                 window.open(
-                  "https://www.goodreads.com/book/show/37786022-storyworthy"
+                  "https://www.goodreads.com/book/show/37786022-storyworthy",
                 )
               }
             >
               <Image
                 src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1514780933i/37786022.jpg"
-                width="100"
-                height="140"
+                width="50"
+                height="70"
                 className="w-full aspect-auto flex max-w-fit"
                 alt="Storyworthy cover photo"
               />
