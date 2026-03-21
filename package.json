@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"next dev\"",
-    "build": "tinacms build && next build",
+    "dev": "set -a; [ -f ./.env.local ] && . ./.env.local; set +a; TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"yarn dev:next\"",
+    "dev:next": "next dev",
+    "build": "set -a; [ -f ./.env.local ] && . ./.env.local; set +a; tinacms build && next build",
     "start": "next start",
     "lint": "next lint"
   },
