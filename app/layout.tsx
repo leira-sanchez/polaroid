@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Head from "next/head";
+import Image from "next/image";
 import HotJar from "@/components/HotJar";
 import Link from "next/link";
 import {
@@ -82,14 +82,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
-      </Head>
       <body className={inter.className + " bg-[#f5f5f9] "}>
         {/* <NavMenu /> */}
         <header className="w-full bg-white shadow mb-12">
           <nav className="flex items-center justify-between px-4 py-4 mx-auto max-w-7xl">
             <div className="flex items-center space-x-4">
+              <Link
+                href="/"
+                aria-label="Leira — Home"
+                className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-4"
+              >
+                <Image
+                  src="/leira-bolt.svg"
+                  alt=""
+                  width={32}
+                  height={32}
+                  unoptimized
+                />
+              </Link>
               <a href="/" className="text-gray-700">
                 Home
               </a>
