@@ -20,6 +20,13 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Brand assets
+
+`public/leira-logo.svg` is the full logo used in the shared site header.
+`public/leira-bolt.svg` is the standalone mark used for section badges and the SVG favicon.
+After updating the bolt, run `node scripts/generate-brand-icons.cjs` to regenerate
+the PNG favicon, multi-size ICO, and white-background Apple touch icon from the same SVG.
+
 ## Goodreads reading card
 
 The homepage reads Leira's public `currently-reading` shelf (profile `3518990`)

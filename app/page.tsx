@@ -96,7 +96,13 @@ export default function Home() {
           <Card>
             <CardHeader className="gap-2">
               <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
-                ⚡️
+                <Image
+                  src="/leira-bolt.svg"
+                  alt=""
+                  width={20}
+                  height={20}
+                  unoptimized
+                />
               </span>
               <CardTitle>About Me</CardTitle>
             </CardHeader>
@@ -282,7 +288,13 @@ export default function Home() {
       <Card id="experience" className="w-full flex flex-col">
         <CardHeader className="gap-2 pb-0">
           <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
-            ⚡️
+            <Image
+              src="/leira-bolt.svg"
+              alt=""
+              width={20}
+              height={20}
+              unoptimized
+            />
           </span>
           <CardTitle>Experience</CardTitle>
           <CardDescription>

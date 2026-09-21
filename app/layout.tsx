@@ -4,13 +4,6 @@ import "./globals.css";
 import Image from "next/image";
 import HotJar from "@/components/HotJar";
 import Link from "next/link";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -52,29 +45,6 @@ export const metadata: Metadata = {
   },
 };
 
-const NavMenu: React.FC = () => {
-  return (
-    <NavigationMenu className="flex justify-end mx-auto w-full pt-24 pb-12">
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <Link href="/" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Home
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <Link href="/blog" legacyBehavior passHref>
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Blog
-            </NavigationMenuLink>
-          </Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
-  );
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -82,24 +52,32 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/icon.png" type="image/png" sizes="32x32" />
+        <link rel="icon" href="/leira-bolt.svg" type="image/svg+xml" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
+      </head>
       <body className={inter.className + " bg-[#f5f5f9] "}>
-        {/* <NavMenu /> */}
         <header className="w-full bg-white shadow mb-12">
-          <nav className="flex items-center justify-between px-4 py-4 mx-auto max-w-7xl">
-            <div className="flex items-center space-x-4">
-              <Link
-                href="/"
-                aria-label="Leira — Home"
-                className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-4"
-              >
-                <Image
-                  src="/leira-bolt.svg"
-                  alt=""
-                  width={32}
-                  height={32}
-                  unoptimized
-                />
-              </Link>
+          <nav
+            aria-label="Main navigation"
+            className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4 mx-auto max-w-7xl"
+          >
+            <Link
+              href="/"
+              aria-label="Leira — Home"
+              className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-4"
+            >
+              <Image
+                src="/leira-logo.svg"
+                alt=""
+                width={120}
+                height={44}
+                className="h-auto w-[120px]"
+                unoptimized
+              />
+            </Link>
+            <div className="flex flex-wrap items-center gap-4 text-sm sm:text-base">
               <a href="/" className="text-gray-700">
                 Home
               </a>
