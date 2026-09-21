@@ -23,6 +23,11 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "i.gr-assets.com",
+        pathname: "/images/**",
+      },
+      {
+        protocol: "https",
         hostname: "images-na.ssl-images-amazon.com",
         pathname: "/**",
       },

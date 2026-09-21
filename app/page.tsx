@@ -18,6 +18,7 @@ import { useEffect, useState } from "react";
 import MediaAppearances from "@/components/MediaAppearances";
 import { Dialog, DialogTrigger } from "@/components/ui/dialog";
 import ContactForm from "@/components/ContactForm";
+import CurrentlyReadingCard from "@/components/CurrentlyReadingCard";
 
 const allExperiences = EXPERIENCE_STRINGS.map((experience, idx) => (
   <ExperienceItem
@@ -265,42 +266,7 @@ export default function Home() {
             </CardContent>
           </Card>
 
-          <Card className="min-h-1/2 h-full">
-            <CardHeader className="gap-2">
-              <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
-                📚
-              </span>
-              <CardTitle>Currently Reading</CardTitle>
-              <CardDescription>
-                Fiction, Business, Self-Improvement and beyond
-              </CardDescription>
-            </CardHeader>
-            <CardContent
-              className="flex gap-2 cursor-pointer"
-              onClick={() =>
-                window.open(
-                  "https://www.goodreads.com/book/show/37786022-storyworthy",
-                )
-              }
-            >
-              <Image
-                src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1514780933i/37786022.jpg"
-                width="50"
-                height="70"
-                className="w-full aspect-auto flex max-w-fit"
-                alt="Storyworthy cover photo"
-              />
-              <div className="flex flex-col">
-                <p>
-                  <strong>Storyworthy</strong>: Engage, Teach, Persuade, and
-                  Change Your Life through the Power of Storytelling
-                </p>
-                <p>
-                  by <em>Matthew Dicks</em>
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <CurrentlyReadingCard />
         </div>
         <Card className="max-w-[640px] hidden sm:flex w-full h-auto relative rounded-lg aspect-square">
           <Image

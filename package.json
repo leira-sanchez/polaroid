@@ -7,7 +7,8 @@
     "dev:next": "next dev",
     "build": "set -a; [ -f ./.env.local ] && . ./.env.local; set +a; tinacms build && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:goodreads": "node --test tests/goodreads.test.cjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.0",
@@ -23,6 +24,7 @@
     "cal-sans": "^1.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "fast-xml-parser": "^5.11.1",
     "lite-youtube-embed": "^0.3.2",
     "next": "14.2.4",
     "next-tinacms-cloudinary": "^5.0.7",
