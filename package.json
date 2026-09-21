@@ -8,7 +8,8 @@
     "build": "set -a; [ -f ./.env.local ] && . ./.env.local; set +a; tinacms build && next build",
     "start": "next start",
     "lint": "next lint",
-    "test:goodreads": "node --test tests/goodreads.test.cjs"
+    "test:goodreads": "node --test tests/goodreads.test.cjs",
+    "test:substack": "node --test tests/substack.test.cjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.0",

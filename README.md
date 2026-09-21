@@ -36,6 +36,22 @@ lost and Goodreads is unavailable, the card links to the profile instead.
 Run `yarn test:goodreads` to check parsing, selection, and upstream errors.
 Refresh failures are logged server-side as `Goodreads refresh failed`.
 
+## Substack newsletter
+
+`/blog` uses Substack's native signup iframe and displays the latest posts from
+the publication's public RSS feed. Change `SUBSTACK_URL` in
+`constants/substack.ts` when Leira's publication is ready; Mofongo Fiction is the
+current placeholder. This updates the signup form, RSS link, archive link, and
+post source together. No Substack API key is needed.
+
+Validated posts are cached for one hour using the Next.js Data Cache. Failed
+refreshes retain the previous cached result. If no cached result is available,
+the page links readers to Substack. RSS can contain only recent posts, so “View
+all posts” opens the full Substack archive. Existing `/blog/[slug]` articles
+remain available at their original URLs.
+
+Run `npm run test:substack` to check feed parsing and upstream failures.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
