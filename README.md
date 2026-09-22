@@ -50,11 +50,14 @@ the publication's public RSS feed at `https://leira.substack.com`.
 `SUBSTACK_URL` in `constants/substack.ts` controls the signup form, RSS link,
 archive link, and post source together. No Substack API key is needed.
 
-Validated posts are cached for one hour using the Next.js Data Cache. Failed
+The posts section renders at request time so a build-time outage cannot bake
+the unavailable message into the cached blog page. Validated posts are cached
+for one hour using the Next.js Data Cache. Failed
 refreshes retain the previous cached result. If no cached result is available,
 the page links readers to Substack. RSS can contain only recent posts, so “View
 all posts” opens the full Substack archive. Existing `/blog/[slug]` articles
 remain available at their original URLs.
+Feed failures are logged server-side as `Substack refresh failed`.
 
 Run `npm run test:substack` to check feed parsing and upstream failures.
 

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
-import { unstable_cache } from "next/cache";
+import { unstable_cache, unstable_noStore as noStore } from "next/cache";
 import Image from "next/image";
 import { SUBSTACK_URL } from "@/constants/substack";
 import { fetchSubstackPosts, SubstackPost } from "@/lib/substack";
@@ -45,6 +45,10 @@ const getPosts = unstable_cache(
 );
 
 async function SubstackPosts() {
+  // Cache successful feed data, not the rendered fallback after a failed fetch.
+  // Keep this outside both unstable_cache and the catch: Next uses it to bail
+  // out of prerendering before making an upstream request at build time.
+  noStore();
   let posts: SubstackPost[];
   try {
     posts = await getPosts();
