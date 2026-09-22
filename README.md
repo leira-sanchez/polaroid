@@ -46,10 +46,9 @@ Refresh failures are logged server-side as `Goodreads refresh failed`.
 ## Substack newsletter
 
 `/blog` uses Substack's native signup iframe and displays the latest posts from
-the publication's public RSS feed. Change `SUBSTACK_URL` in
-`constants/substack.ts` when Leira's publication is ready; Mofongo Fiction is the
-current placeholder. This updates the signup form, RSS link, archive link, and
-post source together. No Substack API key is needed.
+the publication's public RSS feed at `https://leira.substack.com`.
+`SUBSTACK_URL` in `constants/substack.ts` controls the signup form, RSS link,
+archive link, and post source together. No Substack API key is needed.
 
 Validated posts are cached for one hour using the Next.js Data Cache. Failed
 refreshes retain the previous cached result. If no cached result is available,

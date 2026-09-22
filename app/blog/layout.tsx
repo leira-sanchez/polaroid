@@ -26,7 +26,7 @@ export default function BlogLayout({
               Tech, startups, entrepreneurship, Puerto Rican culture, and more —
               embrace the journey in Spanglish
             </p>
-            <SubstackSubscribe />
+            <SubstackSubscribe centered />
           </div>
         </div>
       </section>

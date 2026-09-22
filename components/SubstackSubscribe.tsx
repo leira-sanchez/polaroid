@@ -17,7 +17,7 @@ export default function SubstackSubscribe({
         className="w-full rounded-lg border border-gray-200 bg-white"
         loading={lazy ? "lazy" : "eager"}
       />
-      <div className="mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm sm:justify-start">
+      <div className={`mt-3 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm ${centered ? "" : "sm:justify-start"}`}>
         <a
           href={`${SUBSTACK_URL}/subscribe`}
           className="text-violet-600 hover:underline"
