@@ -72,7 +72,7 @@ export default function Home() {
         <h3 className="text-xl text-center mx-auto">
           Founder at{" "}
           <Link
-            className="text-wrap break-words hover:underline text-violet-600"
+            className="text-wrap break-words hover:underline text-link"
             href="https://www.mofongojobs.com"
             target="_blank"
             rel="noopener noreferrer"
@@ -95,9 +95,10 @@ export default function Home() {
 
           <Card>
             <CardHeader className="gap-2">
-              <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
+              <span className="text-gray-600 dark:text-gray-400 font-bold shadow-sm bg-muted max-w-fit py-1 px-2 rounded-md border">
                 <Image
                   src="/leira-bolt.svg"
+                  className="dark:brightness-200"
                   alt=""
                   width={20}
                   height={20}
@@ -109,13 +110,13 @@ export default function Home() {
             <CardContent>
               <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] items-start sm:items-stretch">
                 <div className="grid gap-1">
-                  <p className="text-gray-700 min-h-7 flex items-center">
+                  <p className="text-gray-700 dark:text-gray-300 min-h-7 flex items-center">
                     📍 &nbsp;SF Bay Area, CA
                   </p>
-                  <p className="text-gray-700 min-h-7 flex items-center">
+                  <p className="text-gray-700 dark:text-gray-300 min-h-7 flex items-center">
                     🏡 &nbsp;Puerto Rico 🇵🇷
                   </p>
-                  <p className="text-gray-700 min-h-7 flex items-center">
+                  <p className="text-gray-700 dark:text-gray-300 min-h-7 flex items-center">
                     🐶&nbsp; Maltipoo named Beni
                   </p>
                   <Separator className="my-1" />
@@ -168,12 +169,12 @@ export default function Home() {
                     <button
                       data-cal-link="leira/30min"
                       data-cal-config='{"layout":"month_view"}'
-                      className="text-violet-500 hover:underline"
+                      className="text-link hover:underline"
                     >
                       Let&apos;s talk
                     </button>
                   </p>
-                  <p className="text-gray-700 flex items-center gap-2 min-h-7">
+                  <p className="text-gray-700 dark:text-gray-300 flex items-center gap-2 min-h-7">
                     <Link
                       href="https://www.linkedin.com/in/leirasanchez"
                       target="_blank"
@@ -259,7 +260,7 @@ export default function Home() {
                   </p>
                   <p className="min-h-7 flex items-center">Se habla español</p>
                 </div>
-                <div className="relative overflow-hidden rounded-lg border bg-slate-50 aspect-[3/4] h-full">
+                <div className="relative overflow-hidden rounded-lg border bg-muted aspect-[3/4] h-full">
                   <Image
                     src="https://res.cloudinary.com/dui7rveyg/image/upload/v1774113735/IMG_2856_e55bae46d2.jpg?updated_at=2026-03-21T17:22:16.105Z"
                     alt="Beni the maltipoo"
@@ -287,9 +288,10 @@ export default function Home() {
       <MediaAppearances />
       <Card id="experience" className="w-full flex flex-col">
         <CardHeader className="gap-2 pb-0">
-          <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
+          <span className="text-gray-600 dark:text-gray-400 font-bold shadow-sm bg-muted max-w-fit py-1 px-2 rounded-md border">
             <Image
               src="/leira-bolt.svg"
+              className="dark:brightness-200"
               alt=""
               width={20}
               height={20}

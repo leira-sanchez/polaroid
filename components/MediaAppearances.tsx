@@ -107,7 +107,7 @@ const allAppearances = MEDIA_APPEARANCES.map(
               <span className="text-sm font-medium">
                 {formatString(type)}:{" "}
                 <Link
-                  className="hover:underline text-violet-500"
+                  className="hover:underline text-link"
                   href={mediaLink}
                   target="_blank"
                   rel="noopener noreferrer"

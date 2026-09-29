@@ -31,7 +31,7 @@ const BlogPostClient = ({ post }: { post: Post | undefined | null }) => {
   }
 
   return (
-    <div className="bg-white py-6 h-full mx-auto w-full justify-center">
+    <div className="bg-card py-6 h-full mx-auto w-full justify-center">
       <div className="container mx-auto gap-6 flex flex-col">
         <Breadcrumb>
           <BreadcrumbList>
