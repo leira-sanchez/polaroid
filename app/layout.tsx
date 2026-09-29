@@ -57,8 +57,8 @@ export default function RootLayout({
         <link rel="icon" href="/leira-bolt.svg" type="image/svg+xml" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-icon.png" sizes="180x180" />
       </head>
-      <body className={inter.className + " bg-[#f5f5f9] "}>
-        <header className="w-full bg-white shadow mb-12">
+      <body className={inter.className + " bg-background "}>
+        <header className="w-full bg-card shadow mb-12">
           <nav
             aria-label="Main navigation"
             className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 px-4 py-4 mx-auto max-w-7xl"
@@ -66,28 +66,28 @@ export default function RootLayout({
             <Link
               href="/"
               aria-label="Leira — Home"
-              className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-4"
+              className="shrink-0 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-600 focus-visible:ring-offset-4 focus-visible:ring-offset-card"
             >
               <Image
                 src="/leira-logo.svg"
                 alt=""
                 width={120}
                 height={44}
-                className="h-auto w-[120px]"
+                className="h-auto w-[120px] dark:brightness-200"
                 unoptimized
               />
             </Link>
             <div className="flex flex-wrap items-center gap-4 text-sm sm:text-base">
-              <a href="/" className="text-gray-700">
+              <a href="/" className="text-gray-700 dark:text-gray-300">
                 Home
               </a>
-              <a href="/blog" className="text-gray-700">
+              <a href="/blog" className="text-gray-700 dark:text-gray-300">
                 Blog
               </a>
-              <a href="/#skills" className="text-gray-700">
+              <a href="/#skills" className="text-gray-700 dark:text-gray-300">
                 Skills
               </a>
-              <a href="/#experience" className="text-gray-700">
+              <a href="/#experience" className="text-gray-700 dark:text-gray-300">
                 Experience
               </a>
             </div>

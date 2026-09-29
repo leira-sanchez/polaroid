@@ -20,6 +20,13 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Color theme
+
+The site follows the system light/dark preference through `prefers-color-scheme`,
+including changes while the page is open. Theme colors live in `app/globals.css`;
+Tailwind dark variants use the same media query. No saved preference or JavaScript
+is required. The embedded Substack signup form retains its own light styling.
+
 ## Brand assets
 
 `public/leira-logo.svg` is the full logo used in the shared site header.

@@ -137,7 +137,7 @@ const ContactForm = ({ open }: { open: boolean }) => {
         </div>
       ) : submissionSuccess ? (
         <div className="flex justify-center items-center py-16">
-          <p className="text-green-500">{submissionSuccess}</p>
+          <p className="text-green-700 dark:text-green-400">{submissionSuccess}</p>
         </div>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-4 py-4">
@@ -150,7 +150,7 @@ const ContactForm = ({ open }: { open: boolean }) => {
                 value={formValues.name}
                 onChange={handleChange}
               />
-              {errors.name && <p className="text-red-500">{errors.name}</p>}
+              {errors.name && <p className="text-red-600 dark:text-red-400">{errors.name}</p>}
             </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
@@ -161,7 +161,7 @@ const ContactForm = ({ open }: { open: boolean }) => {
                 value={formValues.email}
                 onChange={handleChange}
               />
-              {errors.email && <p className="text-red-500">{errors.email}</p>}
+              {errors.email && <p className="text-red-600 dark:text-red-400">{errors.email}</p>}
             </div>
           </div>
           <div className="space-y-2">
@@ -173,7 +173,7 @@ const ContactForm = ({ open }: { open: boolean }) => {
               value={formValues.subject}
               onChange={handleChange}
             />
-            {errors.subject && <p className="text-red-500">{errors.subject}</p>}
+            {errors.subject && <p className="text-red-600 dark:text-red-400">{errors.subject}</p>}
           </div>
           <div className="space-y-2">
             <Label htmlFor="message">Message</Label>
@@ -184,10 +184,10 @@ const ContactForm = ({ open }: { open: boolean }) => {
               value={formValues.message}
               onChange={handleChange}
             />
-            {errors.message && <p className="text-red-500">{errors.message}</p>}
+            {errors.message && <p className="text-red-600 dark:text-red-400">{errors.message}</p>}
           </div>
           <DialogFooter className="gap-2">
-            <Button type="submit" className="bg-violet-500 hover:bg-violet-400">
+            <Button type="submit" className="bg-violet-600 text-white hover:bg-violet-700">
               Submit
             </Button>
             <DialogClose asChild>
@@ -196,7 +196,7 @@ const ContactForm = ({ open }: { open: boolean }) => {
               </Button>
             </DialogClose>
           </DialogFooter>
-          {submissionError && <p className="text-red-500">{submissionError}</p>}
+          {submissionError && <p className="text-red-600 dark:text-red-400">{submissionError}</p>}
         </form>
       )}
     </DialogContent>

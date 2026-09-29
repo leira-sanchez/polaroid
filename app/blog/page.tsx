@@ -57,7 +57,7 @@ async function SubstackPosts() {
     return (
       <p className="py-8 text-muted-foreground" role="status">
         Posts are temporarily unavailable here. You can still{" "}
-        <a className="text-violet-600 hover:underline" href={`${SUBSTACK_URL}/archive`} target="_blank" rel="noopener noreferrer">
+        <a className="text-link hover:underline" href={`${SUBSTACK_URL}/archive`} target="_blank" rel="noopener noreferrer">
           read them on Substack
         </a>.
       </p>
@@ -71,7 +71,7 @@ async function SubstackPosts() {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       {posts.map((post) => (
-        <article key={post.url} className="flex flex-col overflow-hidden rounded-lg border bg-white shadow-sm">
+        <article key={post.url} className="flex flex-col overflow-hidden rounded-lg border bg-card shadow-sm">
           {post.image && (
             <a href={post.url} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true">
               <Image
@@ -93,10 +93,10 @@ async function SubstackPosts() {
               </time>
             )}
             <h3 className="text-lg font-semibold leading-snug">
-              <a href={post.url} target="_blank" rel="noopener noreferrer" className="hover:text-violet-600 hover:underline">{post.title}</a>
+              <a href={post.url} target="_blank" rel="noopener noreferrer" className="hover:text-link hover:underline">{post.title}</a>
             </h3>
             {post.summary && <p className="line-clamp-4 text-sm text-muted-foreground">{post.summary}</p>}
-            <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-auto pt-2 text-sm text-violet-600 hover:underline" aria-label={`Read ${post.title} on Substack`}>
+            <a href={post.url} target="_blank" rel="noopener noreferrer" className="mt-auto pt-2 text-sm text-link hover:underline" aria-label={`Read ${post.title} on Substack`}>
               Read on Substack <span aria-hidden="true">↗</span>
             </a>
           </div>
@@ -111,7 +111,7 @@ export default function BlogHome() {
     <main className="container mx-auto px-4 py-12 md:px-6 md:py-16 lg:py-20">
       <div className="mb-8 flex flex-wrap items-baseline justify-between gap-4">
         <h2 className="text-2xl font-bold">Latest on Substack</h2>
-        <a href={`${SUBSTACK_URL}/archive`} target="_blank" rel="noopener noreferrer" className="text-sm text-violet-600 hover:underline">
+        <a href={`${SUBSTACK_URL}/archive`} target="_blank" rel="noopener noreferrer" className="text-sm text-link hover:underline">
           View all posts <span aria-hidden="true">↗</span>
         </a>
       </div>

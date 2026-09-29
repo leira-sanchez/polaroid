@@ -1,50 +1,57 @@
 @import "cal-sans";
 
 @tailwind base;
-  @tailwind components;
-  @tailwind utilities;
+@tailwind components;
+@tailwind utilities;
 
-  @layer base {
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: 240 25% 96.9%;
+    --foreground: 224 71.4% 4.1%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 71.4% 4.1%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 71.4% 4.1%;
+
+    --primary: 220.9 39.3% 11%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 220 14.3% 95.9%;
+    --secondary-foreground: 220.9 39.3% 11%;
+
+    --muted: 220 14.3% 95.9%;
+    --muted-foreground: 220 8.9% 46.1%;
+
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 224 71.4% 4.1%;
+
+    --link: 262.1 83.3% 57.8%;
+
+    --radius: 0.5rem;
+  }
+
+  /* Follow the OS preference, including changes while the page is open. */
+  @media (prefers-color-scheme: dark) {
     :root {
-      --background: 0 0% 100%;
-      --foreground: 224 71.4% 4.1%;
-
-      --card: 0 0% 100%;
-      --card-foreground: 224 71.4% 4.1%;
-
-      --popover: 0 0% 100%;
-      --popover-foreground: 224 71.4% 4.1%;
-
-      --primary: 220.9 39.3% 11%;
-      --primary-foreground: 210 20% 98%;
-
-      --secondary: 220 14.3% 95.9%;
-      --secondary-foreground: 220.9 39.3% 11%;
-
-      --muted: 220 14.3% 95.9%;
-      --muted-foreground: 220 8.9% 46.1%;
-
-      --accent: 220 14.3% 95.9%;
-      --accent-foreground: 220.9 39.3% 11%;
-
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 210 20% 98%;
-
-      --border: 220 13% 91%;
-      --input: 220 13% 91%;
-      --ring: 224 71.4% 4.1%;
-
-      --radius: 0.5rem;
-    }
-
-    .dark {
+      color-scheme: dark;
+      --link: 255.1 91.7% 76.3%;
       --background: 224 71.4% 4.1%;
       --foreground: 210 20% 98%;
 
-      --card: 224 71.4% 4.1%;
+      --card: 220.9 39.3% 11%;
       --card-foreground: 210 20% 98%;
 
-      --popover: 224 71.4% 4.1%;
+      --popover: 220.9 39.3% 11%;
       --popover-foreground: 210 20% 98%;
 
       --primary: 210 20% 98%;
@@ -67,66 +74,67 @@
       --ring: 216 12.2% 83.9%;
     }
   }
+}
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
-    div.blog-post a {
-      @apply text-purple hover:underline;
-    }
-  
-    div.blog-post p {
-      @apply text-darkGray;
-    }
-  
-    div.blog-post strong {
-      @apply text-black;
-    }
-  
-    h1 {
-      @apply text-4xl font-bold;
-      font-family: "Cal Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    }
-  
-    h2 {
-      @apply text-2xl font-bold;
-    }
-  
-    h3 {
-      @apply text-xl font-bold;
-    }
-    h4 {
-      @apply text-lg font-bold;
-    }
-  
-    div.blog-post ul {
-      @apply list-disc text-darkGray;
-    }
-  
-    div.blog-post ol {
-      @apply list-decimal text-darkGray;
-    }
-  
-    div.blog-post li {
-      @apply ml-6;
-    }
-  
-    .job-post ul {
-      @apply list-disc text-darkGray;
-    }
-  
-    .job-post li {
-      @apply ml-6;
-    }
-  
-    .photo-credit {
-      @apply text-sm text-darkGray;
-    }
-    .photo-credit a {
-      @apply text-purple hover:underline;
-    }
+@layer base {
+  * {
+    @apply border-border;
   }
+  body {
+    @apply bg-background text-foreground;
+  }
+  div.blog-post a {
+    @apply text-link hover:underline;
+  }
+
+  div.blog-post p {
+    @apply text-muted-foreground;
+  }
+
+  div.blog-post strong {
+    @apply text-foreground;
+  }
+
+  h1 {
+    @apply text-4xl font-bold;
+    font-family: "Cal Sans", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  }
+
+  h2 {
+    @apply text-2xl font-bold;
+  }
+
+  h3 {
+    @apply text-xl font-bold;
+  }
+  h4 {
+    @apply text-lg font-bold;
+  }
+
+  div.blog-post ul {
+    @apply list-disc text-muted-foreground;
+  }
+
+  div.blog-post ol {
+    @apply list-decimal text-muted-foreground;
+  }
+
+  div.blog-post li {
+    @apply ml-6;
+  }
+
+  .job-post ul {
+    @apply list-disc text-muted-foreground;
+  }
+
+  .job-post li {
+    @apply ml-6;
+  }
+
+  .photo-credit {
+    @apply text-sm text-muted-foreground;
+  }
+  .photo-credit a {
+    @apply text-link hover:underline;
+  }
+}
