@@ -38,7 +38,7 @@
     "resend": "^3.4.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "tinacms": "^2.8.2"
+    "tinacms": "^3.14.0"
   },
   "devDependencies": {
     "@tinacms/cli": "^1.10.2",
