@@ -41,7 +41,7 @@
     "tinacms": "^2.8.2"
   },
   "devDependencies": {
-    "@tinacms/cli": "^1.10.2",
+    "@tinacms/cli": "^3.0.0",
     "@types/node": "^20.14.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
