@@ -1,4 +1,7 @@
 import { XMLParser, XMLValidator } from "fast-xml-parser";
+import { load } from "cheerio/slim";
+
+export const GOODREADS_PROFILE = "https://www.goodreads.com/user/show/3518990-leira";
 
 export const GOODREADS_FEED =
   "https://www.goodreads.com/review/list_rss/3518990?shelf=currently-reading";
@@ -82,13 +85,45 @@ export function parseCurrentlyReading(xml: string): CurrentlyReadingResponse {
   return { book: books[0].book };
 }
 
+// The public profile is a limited fallback, not the complete RSS shelf.
+// Keep Goodreads' display order: it does not expose user_date_added here.
+export function parseCurrentlyReadingProfile(html: string): CurrentlyReadingResponse {
+  const $ = load(html);
+  const section = $("#currentlyReadingReviews");
+  if (section.length !== 1) throw new Error("Invalid Goodreads reading section");
+  const entry = section.find(".Updates").first();
+  const link = entry.find("a.bookTitle").first();
+  const title = text(link.text());
+  const author = text(entry.find("a.authorName").first().text());
+  const url = new URL(link.attr("href") || "", GOODREADS_PROFILE);
+  const id = url.pathname.match(/^\/book\/show\/(\d+)(?:[.-][^/]*)?$/)?.[1];
+  if (url.origin !== "https://www.goodreads.com" || !id || !title || !author)
+    throw new Error("Invalid Goodreads profile book");
+  return { book: {
+    id, title, author,
+    url: `https://www.goodreads.com/book/show/${id}`,
+    coverUrl: coverUrl({book_image_url: entry.find(".firstcol img").first().attr("src")}),
+  } };
+}
+
 export async function fetchCurrentlyReading(): Promise<CurrentlyReadingResponse> {
-  const response = await fetch(GOODREADS_FEED, {
-    cache: "no-store",
-    signal: AbortSignal.timeout(10_000),
-    headers: { Accept: "application/rss+xml, application/xml, text/xml" },
-  });
-  if (!response.ok)
-    throw new Error(`Goodreads returned HTTP ${response.status}`);
-  return parseCurrentlyReading(await response.text());
+  // One overall deadline bounds both upstream attempts.
+  const signal = AbortSignal.timeout(10_000);
+  try {
+    const response = await fetch(GOODREADS_FEED, {
+      cache: "no-store", signal,
+      headers: { Accept: "application/rss+xml, application/xml, text/xml" },
+    });
+    if (!response.ok) throw new Error(`Goodreads returned HTTP ${response.status}`);
+    return parseCurrentlyReading(await response.text());
+  } catch (error) {
+    if (signal.aborted) throw error;
+    const response = await fetch(GOODREADS_PROFILE, {
+      cache: "no-store", signal,
+      headers: { Accept: "text/html" },
+    });
+    if (!response.ok) throw new Error(`Goodreads returned HTTP ${response.status}`);
+    // Missing/changed markup is an error, never a cacheable empty shelf.
+    return parseCurrentlyReadingProfile(await response.text());
+  }
 }
