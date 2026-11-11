@@ -39,7 +39,7 @@ export default function CurrentlyReadingCard() {
   return (
     <Card className="min-h-1/2 h-full">
       <CardHeader className="gap-2">
-        <span className="text-gray-600 font-bold shadow-sm bg-slate-100 max-w-fit py-1 px-2 rounded-md border">
+        <span className="text-gray-600 dark:text-gray-400 font-bold shadow-sm bg-muted max-w-fit py-1 px-2 rounded-md border">
           📚
         </span>
         <CardTitle>Currently Reading</CardTitle>
@@ -53,14 +53,14 @@ export default function CurrentlyReadingCard() {
             <span className="sr-only">Loading current book</span>
             <div
               aria-hidden="true"
-              className="h-[70px] w-[50px] shrink-0 rounded bg-slate-100 motion-safe:animate-pulse"
+              className="h-[70px] w-[50px] shrink-0 rounded bg-muted motion-safe:animate-pulse"
             />
             <div
               aria-hidden="true"
               className="flex-1 space-y-3 pt-1 motion-safe:animate-pulse"
             >
-              <div className="h-4 w-full rounded bg-slate-100" />
-              <div className="h-4 w-2/3 rounded bg-slate-100" />
+              <div className="h-4 w-full rounded bg-muted" />
+              <div className="h-4 w-2/3 rounded bg-muted" />
             </div>
           </div>
         ) : book ? (
@@ -84,7 +84,7 @@ export default function CurrentlyReadingCard() {
               <div
                 aria-label="Cover unavailable"
                 role="img"
-                className="flex h-[70px] w-[50px] shrink-0 items-center justify-center rounded bg-slate-100"
+                className="flex h-[70px] w-[50px] shrink-0 items-center justify-center rounded bg-muted"
               >
                 📖
               </div>
@@ -107,7 +107,7 @@ export default function CurrentlyReadingCard() {
               href={profileUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-violet-600 underline underline-offset-4"
+              className="text-link underline underline-offset-4"
             >
               {failed
                 ? "See what I’m reading on Goodreads"
