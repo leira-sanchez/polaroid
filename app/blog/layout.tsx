@@ -8,7 +8,7 @@ export default function BlogLayout({
 }>) {
   return (
     <>
-      <section className="w-full bg-[#f5f5f9] py-12 md:py-24 lg:py-32">
+      <section className="w-full bg-background py-12 md:py-24 lg:py-32">
         <div className="container flex flex-col sm:flex-row items-center justify-between gap-6 px-4 md:px-6 lg:gap-10">
           <Image
             src="/the-sim.webp"
@@ -30,9 +30,9 @@ export default function BlogLayout({
           </div>
         </div>
       </section>
-      <div className="bg-white">{children}</div>
+      <div className="bg-card">{children}</div>
 
-      <section className="w-full bg-[#f5f5f9] py-12">
+      <section className="w-full bg-background py-12">
         <div className="container px-4 md:px-6">
           <div className="max-w-2xl mx-auto text-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
