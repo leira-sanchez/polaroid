@@ -89,3 +89,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Tina dependency upgrades
+
+TinaCMS 3.14.0, its CLI 3.0.0, and the Cloudinary adapter 27.0.4 are
+updated together. CLI 3 generates typed rich-text fields that require Tina 3,
+and Cloudinary 27 requires Tina 3. The admin app is kept at 2.5.14, the
+matching CLI release, to avoid installing a second, newer Tina version through
+its version range. Upgrade this group together when moving past these versions.
+
+Run `node --test tests/*.test.cjs` for the local parser and mocked media-adapter
+regressions. Media-provider credentials and live upload acceptance are separate
+from these tests.

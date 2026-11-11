@@ -29,7 +29,7 @@
     "fast-xml-parser": "^5.11.1",
     "lite-youtube-embed": "^0.3.2",
     "next": "14.2.4",
-    "next-tinacms-cloudinary": "^5.0.7",
+    "next-tinacms-cloudinary": "27.0.4",
     "react": "^18",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
@@ -41,8 +41,11 @@
     "tailwindcss-animate": "^1.0.7",
     "tinacms": "^3.14.0"
   },
+  "resolutions": {
+    "@tinacms/app": "2.5.14"
+  },
   "devDependencies": {
-    "@tinacms/cli": "^1.10.2",
+    "@tinacms/cli": "3.0.0",
     "@types/node": "^20.14.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
