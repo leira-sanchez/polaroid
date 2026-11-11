@@ -41,6 +41,13 @@ through `/api/currently-reading`. The newest `user_date_added` wins; equal or
 missing dates retain feed order, with valid dates taking precedence over missing
 dates. Titles, authors, and covers come from RSS; no Goodreads credentials are needed.
 
+If RSS fails (including Goodreads returning 404), the server reads the public
+profile's `currentlyReadingReviews` section. This limited fallback selects the
+first displayed book, not the newest RSS date, because the profile does not expose
+that date or the entire shelf. It never reads other activity sections. Missing or
+changed profile markup remains an error rather than clearing the cached shelf.
+Both requests share a ten-second deadline. No sign-in or private shelf access is used.
+
 Next.js caches the validated result for 24 hours. The next visit after expiration
 serves the previous result while refreshing in the background. Failed refreshes
 leave that result intact; a valid empty shelf replaces it with an empty state.
