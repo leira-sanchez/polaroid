@@ -23,6 +23,7 @@
     "@radix-ui/react-slot": "^1.1.0",
     "@tinacms/auth": "^1.0.5",
     "cal-sans": "^1.0.1",
+    "cheerio": "1.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "fast-xml-parser": "^5.11.1",
