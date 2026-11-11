@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "test:goodreads": "node --test tests/goodreads.test.cjs",
-    "test:substack": "node --test tests/substack.test.cjs"
+    "test:substack": "node --test tests/substack.test.cjs",
+    "test:tina-auth": "node --test tests/tina-auth.test.cjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.0",
