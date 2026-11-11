@@ -20,6 +20,13 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
+## Color theme
+
+The site follows the system light/dark preference through `prefers-color-scheme`,
+including changes while the page is open. Theme colors live in `app/globals.css`;
+Tailwind dark variants use the same media query. No saved preference or JavaScript
+is required. The embedded Substack signup form retains its own light styling.
+
 ## Brand assets
 
 `public/leira-logo.svg` is the full logo used in the shared site header.
@@ -33,6 +40,13 @@ The homepage reads Leira's public `currently-reading` shelf (profile `3518990`)
 through `/api/currently-reading`. The newest `user_date_added` wins; equal or
 missing dates retain feed order, with valid dates taking precedence over missing
 dates. Titles, authors, and covers come from RSS; no Goodreads credentials are needed.
+
+If RSS fails (including Goodreads returning 404), the server reads the public
+profile's `currentlyReadingReviews` section. This limited fallback selects the
+first displayed book, not the newest RSS date, because the profile does not expose
+that date or the entire shelf. It never reads other activity sections. Missing or
+changed profile markup remains an error rather than clearing the cached shelf.
+Both requests share a ten-second deadline. No sign-in or private shelf access is used.
 
 Next.js caches the validated result for 24 hours. The next visit after expiration
 serves the previous result while refreshing in the background. Failed refreshes
@@ -50,11 +64,14 @@ the publication's public RSS feed at `https://leira.substack.com`.
 `SUBSTACK_URL` in `constants/substack.ts` controls the signup form, RSS link,
 archive link, and post source together. No Substack API key is needed.
 
-Validated posts are cached for one hour using the Next.js Data Cache. Failed
+The posts section renders at request time so a build-time outage cannot bake
+the unavailable message into the cached blog page. Validated posts are cached
+for one hour using the Next.js Data Cache. Failed
 refreshes retain the previous cached result. If no cached result is available,
 the page links readers to Substack. RSS can contain only recent posts, so “View
 all posts” opens the full Substack archive. Existing `/blog/[slug]` articles
 remain available at their original URLs.
+Feed failures are logged server-side as `Substack refresh failed`.
 
 Run `npm run test:substack` to check feed parsing and upstream failures.
 

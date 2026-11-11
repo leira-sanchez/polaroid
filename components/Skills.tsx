@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Separator } from "./ui/separator";
 
@@ -24,7 +23,7 @@ const Skills = () => {
                 <h4 className="whitespace-nowrap">Programming Languages</h4>
                 <div className="grid grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed max-w-fit  p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed max-w-fit  p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -43,7 +42,7 @@ const Skills = () => {
                     JavaScript
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -93,7 +92,7 @@ const Skills = () => {
                   </div>
                   {/* Java */}
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="28"
@@ -102,22 +101,27 @@ const Skills = () => {
                       >
                         <path
                           fill="#0074bd"
+                          className="dark:fill-sky-400"
                           d="M47.617 98.12s-4.767 2.774 3.397 3.71c9.892 1.13 14.947.968 25.845-1.092 0 0 2.871 1.795 6.873 3.351-24.439 10.47-55.308-.607-36.115-5.969m-2.988-13.665s-5.348 3.959 2.823 4.805c10.567 1.091 18.91 1.18 33.354-1.6 0 0 1.993 2.025 5.132 3.131-29.542 8.64-62.446.68-41.309-6.336"
                         />
                         <path
                           fill="#ea2d2e"
+                          className="dark:fill-red-400"
                           d="M69.802 61.271c6.025 6.935-1.58 13.17-1.58 13.17s15.289-7.891 8.269-17.777c-6.559-9.215-11.587-13.792 15.635-29.58 0 .001-42.731 10.67-22.324 34.187"
                         />
                         <path
                           fill="#0074bd"
+                          className="dark:fill-sky-400"
                           d="M102.123 108.229s3.529 2.91-3.888 5.159c-14.102 4.272-58.706 5.56-71.094.171-4.451-1.938 3.899-4.625 6.526-5.192 2.739-.593 4.303-.485 4.303-.485-4.953-3.487-32.013 6.85-13.743 9.815 49.821 8.076 90.817-3.637 77.896-9.468M49.912 70.294s-22.686 5.389-8.033 7.348c6.188.828 18.518.638 30.011-.326 9.39-.789 18.813-2.474 18.813-2.474s-3.308 1.419-5.704 3.053c-23.042 6.061-67.544 3.238-54.731-2.958 10.832-5.239 19.644-4.643 19.644-4.643m40.697 22.747c23.421-12.167 12.591-23.86 5.032-22.285-1.848.385-2.677.72-2.677.72s.688-1.079 2-1.543c14.953-5.255 26.451 15.503-4.823 23.725 0-.002.359-.327.468-.617"
                         />
                         <path
                           fill="#ea2d2e"
+                          className="dark:fill-red-400"
                           d="M76.491 1.587S89.459 14.563 64.188 34.51c-20.266 16.006-4.621 25.13-.007 35.559-11.831-10.673-20.509-20.07-14.688-28.815C58.041 28.42 81.722 22.195 76.491 1.587"
                         />
                         <path
                           fill="#0074bd"
+                          className="dark:fill-sky-400"
                           d="M52.214 126.021c22.476 1.437 57-.8 57.817-11.436 0 0-1.571 4.032-18.577 7.231-19.186 3.612-42.854 3.191-56.887.874 0 .001 2.875 2.381 17.647 3.331"
                         />
                       </svg>
@@ -126,7 +130,7 @@ const Skills = () => {
                   </div>
                   {/* Python */}
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -137,6 +141,7 @@ const Skills = () => {
                       >
                         <path
                           fill="#0277BD"
+                          className="dark:fill-sky-500"
                           d="M24.047,5c-1.555,0.005-2.633,0.142-3.936,0.367c-3.848,0.67-4.549,2.077-4.549,4.67V14h9v2H15.22h-4.35c-2.636,0-4.943,1.242-5.674,4.219c-0.826,3.417-0.863,5.557,0,9.125C5.851,32.005,7.294,34,9.931,34h3.632v-5.104c0-2.966,2.686-5.896,5.764-5.896h7.236c2.523,0,5-1.862,5-4.377v-8.586c0-2.439-1.759-4.263-4.218-4.672C27.406,5.359,25.589,4.994,24.047,5z M19.063,9c0.821,0,1.5,0.677,1.5,1.502c0,0.833-0.679,1.498-1.5,1.498c-0.837,0-1.5-0.664-1.5-1.498C17.563,9.68,18.226,9,19.063,9z"
                         ></path>
                         <path
@@ -157,7 +162,7 @@ const Skills = () => {
                 <h4>Frontend</h4>
                 <div className="grid w-full grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -206,7 +211,7 @@ const Skills = () => {
                   </div>
                   {/* NextJS */}
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -217,6 +222,7 @@ const Skills = () => {
                       >
                         <path
                           fill="#212121"
+                          className="dark:fill-gray-100"
                           d="M18.974,31.5c0,0.828-0.671,1.5-1.5,1.5s-1.5-0.672-1.5-1.5v-14c0-0.653,0.423-1.231,1.045-1.43 c0.625-0.198,1.302,0.03,1.679,0.563l16.777,23.704C40.617,36.709,44,30.735,44,24c0-11-9-20-20-20S4,13,4,24s9,20,20,20 c3.192,0,6.206-0.777,8.89-2.122L18.974,22.216V31.5z M28.974,16.5c0-0.828,0.671-1.5,1.5-1.5s1.5,0.672,1.5,1.5v13.84l-3-4.227 V16.5z"
                         ></path>
                       </svg>
@@ -224,7 +230,7 @@ const Skills = () => {
                     NextJS
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -252,7 +258,7 @@ const Skills = () => {
                   </div>
                   {/* Tailwind */}
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -279,7 +285,7 @@ const Skills = () => {
                 <h4>Backend</h4>
                 <div className="grid grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -290,14 +296,17 @@ const Skills = () => {
                       >
                         <path
                           fill="#388e3c"
+                          className="dark:fill-green-400"
                           d="M17.204 19.122l-4.907 2.715C12.113 21.938 12 22.126 12 22.329v5.433c0 .203.113.39.297.492l4.908 2.717c.183.101.41.101.593 0l4.907-2.717C22.887 28.152 23 27.965 23 27.762v-5.433c0-.203-.113-.39-.297-.492l-4.906-2.715c-.092-.051-.195-.076-.297-.076-.103 0-.205.025-.297.076M42.451 24.013l-.818.452c-.031.017-.049.048-.049.082v.906c0 .034.019.065.049.082l.818.453c.031.017.068.017.099 0l.818-.453c.03-.017.049-.048.049-.082v-.906c0-.034-.019-.065-.05-.082l-.818-.452C42.534 24.004 42.517 24 42.5 24S42.466 24.004 42.451 24.013"
                         ></path>
                         <path
                           fill="#37474f"
+                          className="dark:fill-gray-200"
                           d="M35.751,13.364l-2.389-1.333c-0.075-0.042-0.167-0.041-0.241,0.003 c-0.074,0.044-0.12,0.123-0.12,0.209L33,20.295l-2.203-1.219C30.705,19.025,30.602,19,30.5,19c-0.102,0-0.205,0.025-0.297,0.076 h0.001l-4.907,2.715C25.113,21.892,25,22.08,25,22.282v5.433c0,0.203,0.113,0.39,0.297,0.492l4.908,2.717 c0.183,0.101,0.41,0.101,0.593,0l4.907-2.717C35.887,28.106,36,27.918,36,27.715V13.788C36,13.612,35.904,13.45,35.751,13.364z M32.866,26.458l-2.23,1.235c-0.083,0.046-0.186,0.046-0.269,0l-2.231-1.235C28.051,26.412,28,26.326,28,26.234v-2.47 c0-0.092,0.051-0.177,0.135-0.224l2.231-1.234h-0.001c0.042-0.023,0.088-0.034,0.135-0.034c0.047,0,0.093,0.012,0.135,0.034 l2.23,1.234C32.949,23.587,33,23.673,33,23.765v2.47C33,26.326,32.949,26.412,32.866,26.458z"
                         ></path>
                         <path
                           fill="#2e7d32"
+                          className="dark:fill-green-500"
                           d="M17.204,19.122L12,27.762c0,0.203,0.113,0.39,0.297,0.492l4.908,2.717 c0.183,0.101,0.41,0.101,0.593,0L23,22.329c0-0.203-0.113-0.39-0.297-0.492l-4.906-2.715c-0.092-0.051-0.195-0.076-0.297-0.076 c-0.103,0-0.205,0.025-0.297,0.076"
                         ></path>
                         <path
@@ -306,6 +315,7 @@ const Skills = () => {
                         ></path>
                         <path
                           fill="#37474f"
+                          className="dark:fill-gray-200"
                           d="M47.703 21.791l-4.906-2.715C42.705 19.025 42.602 19 42.5 19c-.102 0-.205.025-.297.076h.001l-4.907 2.715C37.114 21.892 37 22.084 37 22.294v5.411c0 .209.114.402.297.503l4.908 2.717c.184.102.409.102.593 0l2.263-1.253c.207-.115.206-.412-.002-.526l-4.924-2.687C40.052 26.412 40 26.325 40 26.231v-2.466c0-.092.05-.177.13-.221l2.235-1.236h-.001c.042-.023.088-.034.135-.034.047 0 .093.012.135.034l2.235 1.237c.08.044.13.129.13.221v2.012c0 .086.046.166.121.209.075.042.167.042.242-.001l2.398-1.393c.148-.086.24-.245.24-.417v-1.88C48 22.085 47.886 21.892 47.703 21.791zM10.703 21.791l-4.906-2.715C5.705 19.025 5.602 19 5.5 19c-.102 0-.205.025-.297.076h.001l-4.907 2.715C.114 21.892 0 22.084 0 22.294v7.465c0 .086.046.166.121.209.075.042.167.042.242-.001l2.398-1.393C2.909 28.488 3 28.329 3 28.157v-4.393c0-.092.05-.177.13-.221l2.235-1.236H5.365c.042-.023.088-.034.135-.034.047 0 .093.012.135.034l2.235 1.237C7.95 23.588 8 23.673 8 23.765v4.393c0 .172.091.331.24.417l2.398 1.393c.075.043.167.043.242.001C10.954 29.925 11 29.845 11 29.759v-7.464C11 22.085 10.886 21.892 10.703 21.791z"
                         ></path>
                       </svg>
@@ -313,7 +323,7 @@ const Skills = () => {
                     NodeJS
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -343,8 +353,9 @@ const Skills = () => {
                     PostgreSQL
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
+                        className="fill-black dark:fill-gray-100"
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
                         y="0px"
@@ -359,8 +370,9 @@ const Skills = () => {
                   </div>
                   {/* OpenAI */}
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
+                        className="fill-black dark:fill-gray-100"
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
                         y="0px"
@@ -374,7 +386,7 @@ const Skills = () => {
                     OpenAI API
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -404,7 +416,7 @@ const Skills = () => {
                 <div className="grid grid-cols-2 md:grid-cols-1 gap-2 mt-2">
                   {/* <div className="flex flex-wrap flex-col sm:flex-row gap-2 mt-2"> */}
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -414,6 +426,7 @@ const Skills = () => {
                       >
                         <path
                           fill="black"
+                          className="dark:fill-gray-100"
                           d="M141 16c-11 0-19 7-19 18s9 18 20 18c7 0 13-3 16-7l-7-5c-2 3-6 4-9 4-5 0-9-3-10-7h28v-3c0-11-8-18-19-18zm-9 15c1-4 4-7 9-7s8 3 9 7h-18zm117-15c-11 0-19 7-19 18s9 18 20 18c6 0 12-3 16-7l-8-5c-2 3-5 4-8 4-5 0-9-3-11-7h28l1-3c0-11-8-18-19-18zm-10 15c2-4 5-7 10-7s8 3 9 7h-19zm-39 3c0 6 4 10 10 10 4 0 7-2 9-5l8 5c-3 5-9 8-17 8-11 0-19-7-19-18s8-18 19-18c8 0 14 3 17 8l-8 5c-2-3-5-5-9-5-6 0-10 4-10 10zm83-29v46h-9V5h9zM37 0l37 64H0L37 0zm92 5-27 48L74 5h10l18 30 17-30h10zm59 12v10l-3-1c-6 0-10 4-10 10v15h-9V17h9v9c0-5 6-9 13-9z"
                         />
                       </svg>
@@ -421,7 +434,7 @@ const Skills = () => {
                     Vercel
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -443,7 +456,7 @@ const Skills = () => {
                     Heroku
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -454,6 +467,7 @@ const Skills = () => {
                       >
                         <path
                           fill="#252f3e"
+                          className="dark:fill-gray-100"
                           d="M13.527,21.529c0,0.597,0.064,1.08,0.176,1.435c0.128,0.355,0.287,0.742,0.511,1.161 c0.08,0.129,0.112,0.258,0.112,0.371c0,0.161-0.096,0.322-0.303,0.484l-1.006,0.677c-0.144,0.097-0.287,0.145-0.415,0.145 c-0.16,0-0.319-0.081-0.479-0.226c-0.224-0.242-0.415-0.5-0.575-0.758c-0.16-0.274-0.319-0.58-0.495-0.951 c-1.245,1.483-2.81,2.225-4.694,2.225c-1.341,0-2.411-0.387-3.193-1.161s-1.181-1.806-1.181-3.096c0-1.37,0.479-2.483,1.453-3.321 s2.267-1.258,3.911-1.258c0.543,0,1.102,0.048,1.692,0.129s1.197,0.21,1.836,0.355v-1.177c0-1.225-0.255-2.08-0.75-2.58 c-0.511-0.5-1.373-0.742-2.602-0.742c-0.559,0-1.133,0.064-1.724,0.21c-0.591,0.145-1.165,0.322-1.724,0.548 c-0.255,0.113-0.447,0.177-0.559,0.21c-0.112,0.032-0.192,0.048-0.255,0.048c-0.224,0-0.335-0.161-0.335-0.5v-0.79 c0-0.258,0.032-0.451,0.112-0.564c0.08-0.113,0.224-0.226,0.447-0.339c0.559-0.29,1.229-0.532,2.012-0.726 c0.782-0.21,1.612-0.306,2.49-0.306c1.9,0,3.289,0.435,4.183,1.306c0.878,0.871,1.325,2.193,1.325,3.966v5.224H13.527z M7.045,23.979c0.527,0,1.07-0.097,1.644-0.29c0.575-0.193,1.086-0.548,1.517-1.032c0.255-0.306,0.447-0.645,0.543-1.032 c0.096-0.387,0.16-0.855,0.16-1.403v-0.677c-0.463-0.113-0.958-0.21-1.469-0.274c-0.511-0.064-1.006-0.097-1.501-0.097 c-1.07,0-1.852,0.21-2.379,0.645s-0.782,1.048-0.782,1.854c0,0.758,0.192,1.322,0.591,1.709 C5.752,23.786,6.311,23.979,7.045,23.979z M19.865,25.721c-0.287,0-0.479-0.048-0.607-0.161c-0.128-0.097-0.239-0.322-0.335-0.629 l-3.752-12.463c-0.096-0.322-0.144-0.532-0.144-0.645c0-0.258,0.128-0.403,0.383-0.403h1.565c0.303,0,0.511,0.048,0.623,0.161 c0.128,0.097,0.223,0.322,0.319,0.629l2.682,10.674l2.49-10.674c0.08-0.322,0.176-0.532,0.303-0.629 c0.128-0.097,0.351-0.161,0.639-0.161h1.277c0.303,0,0.511,0.048,0.639,0.161c0.128,0.097,0.239,0.322,0.303,0.629l2.522,10.803 l2.762-10.803c0.096-0.322,0.208-0.532,0.319-0.629c0.128-0.097,0.335-0.161,0.623-0.161h1.485c0.255,0,0.399,0.129,0.399,0.403 c0,0.081-0.016,0.161-0.032,0.258s-0.048,0.226-0.112,0.403l-3.847,12.463c-0.096,0.322-0.208,0.532-0.335,0.629 s-0.335,0.161-0.607,0.161h-1.373c-0.303,0-0.511-0.048-0.639-0.161c-0.128-0.113-0.239-0.322-0.303-0.645l-2.474-10.4 L22.18,24.915c-0.08,0.322-0.176,0.532-0.303,0.645c-0.128,0.113-0.351,0.161-0.639,0.161H19.865z M40.379,26.156 c-0.83,0-1.66-0.097-2.458-0.29c-0.798-0.193-1.421-0.403-1.836-0.645c-0.255-0.145-0.431-0.306-0.495-0.451 c-0.064-0.145-0.096-0.306-0.096-0.451v-0.822c0-0.339,0.128-0.5,0.367-0.5c0.096,0,0.192,0.016,0.287,0.048 c0.096,0.032,0.239,0.097,0.399,0.161c0.543,0.242,1.133,0.435,1.756,0.564c0.639,0.129,1.261,0.193,1.9,0.193 c1.006,0,1.788-0.177,2.331-0.532c0.543-0.355,0.83-0.871,0.83-1.532c0-0.451-0.144-0.822-0.431-1.129 c-0.287-0.306-0.83-0.58-1.612-0.838l-2.315-0.726c-1.165-0.371-2.027-0.919-2.554-1.645c-0.527-0.709-0.798-1.499-0.798-2.338 c0-0.677,0.144-1.274,0.431-1.79s0.671-0.967,1.149-1.322c0.479-0.371,1.022-0.645,1.66-0.838C39.533,11.081,40.203,11,40.906,11 c0.351,0,0.718,0.016,1.07,0.064c0.367,0.048,0.702,0.113,1.038,0.177c0.319,0.081,0.623,0.161,0.91,0.258s0.511,0.193,0.671,0.29 c0.224,0.129,0.383,0.258,0.479,0.403c0.096,0.129,0.144,0.306,0.144,0.532v0.758c0,0.339-0.128,0.516-0.367,0.516 c-0.128,0-0.335-0.064-0.607-0.193c-0.91-0.419-1.932-0.629-3.065-0.629c-0.91,0-1.628,0.145-2.123,0.451 c-0.495,0.306-0.75,0.774-0.75,1.435c0,0.451,0.16,0.838,0.479,1.145c0.319,0.306,0.91,0.613,1.756,0.887l2.267,0.726 c1.149,0.371,1.98,0.887,2.474,1.548s0.734,1.419,0.734,2.257c0,0.693-0.144,1.322-0.415,1.87 c-0.287,0.548-0.671,1.032-1.165,1.419c-0.495,0.403-1.086,0.693-1.772,0.903C41.943,26.043,41.193,26.156,40.379,26.156z"
                         ></path>
                         <path
@@ -474,8 +488,9 @@ const Skills = () => {
                 <h4>Tools</h4>
                 <div className="grid w-full md:grid-cols-1 grid-cols-2 gap-2 mt-2">
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
+                        className="fill-black dark:fill-gray-100"
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
                         y="0px"
@@ -489,8 +504,9 @@ const Skills = () => {
                     Git
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
+                        className="fill-black dark:fill-gray-100"
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
                         y="0px"
@@ -504,7 +520,7 @@ const Skills = () => {
                     GitHub
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         x="0px"
@@ -535,7 +551,7 @@ const Skills = () => {
                     Figma
                   </div>
                   <div className="flex items-center gap-1">
-                    <span className="shadow-sm border-dashed max-w-fit p-1 rounded-md border">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed max-w-fit p-1 rounded-md border">
                       <svg
                         width="28"
                         height="28"
@@ -545,7 +561,7 @@ const Skills = () => {
                         <path
                           d="M4.709 15.955l4.72-2.647.08-.23-.08-.128H9.2l-.79-.048-2.698-.073-2.339-.097-2.266-.122-.571-.121L0 11.784l.055-.352.48-.321.686.06 1.52.103 2.278.158 1.652.097 2.449.255h.389l.055-.157-.134-.098-.103-.097-2.358-1.596-2.552-1.688-1.336-.972-.724-.491-.364-.462-.158-1.008.656-.722.881.06.225.061.893.686 1.908 1.476 2.491 1.833.365.304.145-.103.019-.073-.164-.274-1.355-2.446-1.446-2.49-.644-1.032-.17-.619a2.97 2.97 0 01-.104-.729L6.283.134 6.696 0l.996.134.42.364.62 1.414 1.002 2.229 1.555 3.03.456.898.243.832.091.255h.158V9.01l.128-1.706.237-2.095.23-2.695.08-.76.376-.91.747-.492.584.28.48.685-.067.444-.286 1.851-.559 2.903-.364 1.942h.212l.243-.242.985-1.306 1.652-2.064.73-.82.85-.904.547-.431h1.033l.76 1.129-.34 1.166-1.064 1.347-.881 1.142-1.264 1.7-.79 1.36.073.11.188-.02 2.856-.606 1.543-.28 1.841-.315.833.388.091.395-.328.807-1.969.486-2.309.462-3.439.813-.042.03.049.061 1.549.146.662.036h1.622l3.02.225.79.522.474.638-.079.485-1.215.62-1.64-.389-3.829-.91-1.312-.329h-.182v.11l1.093 1.068 2.006 1.81 2.509 2.33.127.578-.322.455-.34-.049-2.205-1.657-.851-.747-1.926-1.62h-.128v.17l.444.649 2.345 3.521.122 1.08-.17.353-.608.213-.668-.122-1.374-1.925-1.415-2.167-1.143-1.943-.14.08-.674 7.254-.316.37-.729.28-.607-.461-.322-.747.322-1.476.389-1.924.315-1.53.286-1.9.17-.632-.012-.042-.14.018-1.434 1.967-2.18 2.945-1.726 1.845-.414.164-.717-.37.067-.662.401-.589 2.388-3.036 1.44-1.882.93-1.086-.006-.158h-.055L4.132 18.56l-1.13.146-.487-.456.061-.746.231-.243 1.908-1.312-.006.006z"
                           fill="#D97757"
-                          fill-rule="nonzero"
+                          fillRule="nonzero"
                         ></path>
                       </svg>
                     </span>
