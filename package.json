@@ -7,7 +7,7 @@
     "dev:next": "next dev",
     "build": "set -a; [ -f ./.env.local ] && . ./.env.local; set +a; tinacms build && next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test:goodreads": "node --test tests/goodreads.test.cjs",
     "test:substack": "node --test tests/substack.test.cjs",
     "test:tina-auth": "node --test tests/tina-auth.test.cjs"
