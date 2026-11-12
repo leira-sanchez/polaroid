@@ -75,6 +75,15 @@ Feed failures are logged server-side as `Substack refresh failed`.
 
 Run `npm run test:substack` to check feed parsing and upstream failures.
 
+## Tina media authorization
+
+The Cloudinary media authorization callback uses the site's configured
+`NEXT_PUBLIC_TINA_CLIENT_ID`, never a client ID supplied by a request. Keep that
+value configured in the server deployment environment as well as at build time.
+Missing configuration or an unverified user fails authorization in production.
+Run `yarn test:tina-auth` for mocked authorization regression checks; these do not
+contact TinaCloud or upload media.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -89,12 +98,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Tina media authorization
-
-The Cloudinary media authorization callback uses the site's configured
-`NEXT_PUBLIC_TINA_CLIENT_ID`, never a client ID supplied by a request. Keep that
-value configured in the server deployment environment as well as at build time.
-Missing configuration or an unverified user fails authorization in production.
-Run `yarn test:tina-auth` for mocked authorization regression checks; these do not
-contact TinaCloud or upload media.
