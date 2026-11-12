@@ -6133,9 +6133,9 @@ isomorphic-fetch@^3.0.0:
     whatwg-fetch "^3.4.1"
 
 isomorphic-git@^1.29.0:
-  version "1.37.4"
-  resolved "https://registry.yarnpkg.com/isomorphic-git/-/isomorphic-git-1.37.4.tgz#565a15f8bad8b49175b3d088320092a2fc83d4a7"
-  integrity sha512-fNnCEJtI1refeVxysiuqGP9cubUoLibUS6UIDUWSy5Op6sVdFwGv/SpzfhMFiDkfgYoXKqurZ+LVxEeesy+T0Q==
+  version "1.44.12"
+  resolved "https://registry.yarnpkg.com/isomorphic-git/-/isomorphic-git-1.44.12.tgz#621d2d52e991824ce72fcc1186f25db611f3be6b"
+  integrity sha512-Qfu5/YMcN1YyGqT3ZUmgFIlbj/bFwbwMbF4zlitrRGGyujyqtgMCOTy07mfca/iugH1ECpF6rlebFDceRs+MNg==
   dependencies:
     async-lock "^1.4.1"
     clean-git-ref "^2.0.1"
@@ -6145,7 +6145,6 @@ isomorphic-git@^1.29.0:
     minimisted "^2.0.0"
     pako "^1.0.10"
     pify "^4.0.1"
-    readable-stream "^4.0.0"
     sha.js "^2.4.12"
     simple-get "^4.0.1"
 
