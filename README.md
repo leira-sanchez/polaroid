@@ -75,6 +75,15 @@ Feed failures are logged server-side as `Substack refresh failed`.
 
 Run `npm run test:substack` to check feed parsing and upstream failures.
 
+## Tina media authorization
+
+The Cloudinary media authorization callback uses the site's configured
+`NEXT_PUBLIC_TINA_CLIENT_ID`, never a client ID supplied by a request. Keep that
+value configured in the server deployment environment as well as at build time.
+Missing configuration or an unverified user fails authorization in production.
+Run `yarn test:tina-auth` for mocked authorization regression checks; these do not
+contact TinaCloud or upload media.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
