@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Separator } from "./ui/separator";
 
@@ -593,13 +594,13 @@ const Skills = () => {
             <h4>Growth Tools</h4>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
               {[
-                ["PostHog", "PH"],
-                ["Mixpanel", "M"],
-                ["Google Analytics", "GA"],
+                ["PostHog", "", "/skills/posthog.svg"],
+                ["Mixpanel", "", "/skills/mixpanel.svg"],
+                ["Google Analytics", "", "/skills/google-analytics.svg"],
                 ["SEO", "SEO"],
                 ["AEO", "AEO"],
                 ["A/B Testing/experiments", "A/B"],
-              ].map(([name, label]) => (
+              ].map(([name, label, logo]) => (
                 <div
                   key={name}
                   className={`flex items-center gap-1 min-w-0 ${name === "A/B Testing/experiments" ? "col-span-2 md:col-span-1" : ""}`}
@@ -608,9 +609,19 @@ const Skills = () => {
                     aria-hidden="true"
                     className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed max-w-fit p-1 rounded-md border"
                   >
-                    <span className="flex h-7 w-7 items-center justify-center text-xs font-medium">
-                      {label}
-                    </span>
+                    {logo ? (
+                      <Image
+                        src={logo}
+                        alt=""
+                        width={28}
+                        height={28}
+                        className={`h-7 w-7 object-contain ${name === "PostHog" ? "rounded-sm bg-white p-0.5" : ""}`}
+                      />
+                    ) : (
+                      <span className="flex h-7 w-7 items-center justify-center text-xs font-medium">
+                        {label}
+                      </span>
+                    )}
                   </span>
                   <span className="break-words min-w-0">{name}</span>
                 </div>
