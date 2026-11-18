@@ -353,6 +353,23 @@ const Skills = () => {
                     PostgreSQL
                   </div>
                   <div className="flex items-center gap-1">
+                    <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed max-w-fit p-1 rounded-md border">
+                      <svg
+                        width="28"
+                        height="28"
+                        viewBox="0 0 28 28"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        aria-hidden="true"
+                      >
+                        <ellipse cx="14" cy="6" rx="9" ry="4" />
+                        <path d="M5 6v16c0 2.2 4 4 9 4s9-1.8 9-4V6M5 14c0 2.2 4 4 9 4s9-1.8 9-4" />
+                      </svg>
+                    </span>
+                    SQLite
+                  </div>
+                  <div className="flex items-center gap-1">
                     <span className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed  max-w-fit p-1 rounded-md border">
                       <svg
                         className="fill-black dark:fill-gray-100"
@@ -569,6 +586,35 @@ const Skills = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <Separator className="my-4" />
+          <div className="pl-4 text-sm">
+            <h4>Growth Tools</h4>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 mt-2">
+              {[
+                ["PostHog", "PH"],
+                ["Mixpanel", "M"],
+                ["Google Analytics", "GA"],
+                ["SEO", "SEO"],
+                ["AEO", "AEO"],
+                ["A/B Testing/experiments", "A/B"],
+              ].map(([name, label]) => (
+                <div
+                  key={name}
+                  className={`flex items-center gap-1 min-w-0 ${name === "A/B Testing/experiments" ? "col-span-2 md:col-span-1" : ""}`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="shrink-0 dark:bg-background/50 dark:border-slate-700 dark:border-solid dark:shadow-none shadow-sm border-dashed max-w-fit p-1 rounded-md border"
+                  >
+                    <span className="flex h-7 w-7 items-center justify-center text-xs font-medium">
+                      {label}
+                    </span>
+                  </span>
+                  <span className="break-words min-w-0">{name}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
