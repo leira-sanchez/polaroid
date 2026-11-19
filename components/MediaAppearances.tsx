@@ -273,11 +273,13 @@ const MediaAppearances = () => {
   const additionalAppearancesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setIsClient(true);
+    let active = true;
     const loadLiteYouTube = async () => {
       await import("lite-youtube-embed");
+      if (active) setIsClient(true);
     };
-    loadLiteYouTube();
+    void loadLiteYouTube();
+    return () => { active = false; };
   }, []);
 
   const toggleAppearances = () => {

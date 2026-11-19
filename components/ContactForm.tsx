@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   DialogContent,
   DialogHeader,
@@ -47,7 +47,7 @@ const submitContactForm = async (values: ContactFormValues) => {
   return data;
 };
 
-const ContactForm = ({ open }: { open: boolean }) => {
+const ContactForm = () => {
   const [formValues, setFormValues] = useState<ContactFormValues>({
     name: "",
     email: "",
@@ -118,12 +118,6 @@ const ContactForm = ({ open }: { open: boolean }) => {
     setSubmissionSuccess(null);
     setLoading(false);
   };
-
-  useEffect(() => {
-    if (!open) {
-      resetForm();
-    }
-  }, [open]);
 
   return (
     <DialogContent className="sm:max-w-[425px]">

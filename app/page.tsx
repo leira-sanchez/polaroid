@@ -255,7 +255,7 @@ export default function Home() {
                           ></path>
                         </svg>
                       </DialogTrigger>
-                      <ContactForm open={isOpen} />
+                      {isOpen && <ContactForm />}
                     </Dialog>
                   </p>
                   <p className="min-h-7 flex items-center">Se habla español</p>
