@@ -26,16 +26,15 @@ test("blog page and metadata await Next 15 route params", async () => {
   const queries = [];
   const post = { title: "Fixture post", summary: "Fixture summary", publishDate: "2026-11-11", body: null };
   const route = loadRoute("../app/blog/[slug]/page.tsx", {
-    "@/tina/__generated__/client": { client: { queries: {
-      post: async (query) => { queries.push(query); return { data: { post } }; },
-    } } },
+    "@/lib/posts": { getPost: async (slug) => { queries.push(slug); return post; } },
+    "next/navigation": { notFound: () => { throw new Error("NOT_FOUND"); } },
     "./BlogPostClient": () => null,
   });
   const element = await route.default({ params: Promise.resolve({ slug: "fixture" }) });
   assert.equal(element.props.post, post);
   const metadata = await route.generateMetadata({ params: Promise.resolve({ slug: "fixture" }) });
   assert.equal(metadata.title, "Fixture post");
-  assert.deepEqual(queries, [{ relativePath: "fixture.md" }, { relativePath: "fixture.md" }]);
+  assert.deepEqual(queries, ["fixture", "fixture"]);
 });
 
 test("component preview awaits Next 15 route params", async () => {

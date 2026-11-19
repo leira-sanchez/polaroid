@@ -75,14 +75,26 @@ Feed failures are logged server-side as `Substack refresh failed`.
 
 Run `npm run test:substack` to check feed parsing and upstream failures.
 
-## Tina media authorization
+## File-backed legacy articles
 
-The Cloudinary media authorization callback uses the site's configured
-`NEXT_PUBLIC_TINA_CLIENT_ID`, never a client ID supplied by a request. Keep that
-value configured in the server deployment environment as well as at build time.
-Missing configuration or an unverified user fails authorization in production.
-Run `yarn test:tina-auth` for mocked authorization regression checks; these do not
-contact TinaCloud or upload media.
+Authored Markdown lives in `content/posts`. The filename (without `.md`) is the
+public `/blog/<filename>` route. Preserve filenames when editing existing posts.
+YAML frontmatter supports title, summary, publishDate, image, tags, and slug;
+the historical slug field is retained in files but does not override route identity.
+Dates remain display strings. `draft: true` keeps a file out of public routes,
+tags and the sitemap. Invalid frontmatter fails visibly rather than disappearing.
+
+Edit these files in Git and deploy normally. `yarn dev` and `yarn build` need no
+Tina generation or credentials. `/blog` still uses the unchanged Substack feed.
+The legacy `/api/tina/tags` URL remains as a file-backed compatibility endpoint.
+The old Tina `/admin` UI and media-upload handler are removed. Existing hosted
+images remain untouched and their image origins stay allowed. No hosted Tina
+project, credentials or provider configuration are deleted by this change.
+
+Markdown/GFM renders as text and safe links, images, lists, tables and code blocks.
+Raw HTML/MDX is not executed. Custom interactive embeds require an explicit,
+reviewed component instead of enabling arbitrary HTML. Run `yarn test:posts`
+and `node --test tests/*.test.cjs` for parser, routing and existing regressions.
 
 ## Learn More
 
@@ -98,15 +110,3 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
-
-## Tina dependency upgrades
-
-TinaCMS 3.14.0, its CLI 3.0.0, and the Cloudinary adapter 27.0.4 are
-updated together. CLI 3 generates typed rich-text fields that require Tina 3,
-and Cloudinary 27 requires Tina 3. The admin app is kept at 2.5.14, the
-matching CLI release, to avoid installing a second, newer Tina version through
-its version range. Upgrade this group together when moving past these versions.
-
-Run `node --test tests/*.test.cjs` for the local parser and mocked media-adapter
-regressions. Media-provider credentials and live upload acceptance are separate
-from these tests.

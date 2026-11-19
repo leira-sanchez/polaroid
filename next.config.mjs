@@ -1,23 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: "/admin",
-        destination: "/admin/index.html",
-        permanent: false,
-      },
-    ];
-  },
-  async rewrites() {
-    return [
-      {
-        source: "/api/:path*",
-        destination: "/api/:path*", // Proxy to API
-      },
-    ];
-  },
   reactStrictMode: true,
+  outputFileTracingIncludes: {
+    "/blog/*": ["./content/posts/**/*.md"],
+    "/sitemap.xml": ["./content/posts/**/*.md"],
+    "/api/tina/tags": ["./content/posts/**/*.md"],
+  },
   images: {
     remotePatterns: [
       {

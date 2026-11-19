@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "set -a; [ -f ./.env.local ] && . ./.env.local; set +a; TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"yarn dev:next\"",
+    "dev": "next dev",
     "dev:next": "next dev",
-    "build": "set -a; [ -f ./.env.local ] && . ./.env.local; set +a; tinacms build && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "test:goodreads": "node --test tests/goodreads.test.cjs",
     "test:substack": "node --test tests/substack.test.cjs",
-    "test:tina-auth": "node --test tests/tina-auth.test.cjs"
+    "test:posts": "node --test tests/posts.test.cjs"
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.0",
@@ -22,7 +22,6 @@
     "@radix-ui/react-navigation-menu": "^1.2.0",
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.3.3",
-    "@tinacms/auth": "^1.1.4",
     "cal-sans": "^1.0.1",
     "cheerio": "1.0.0",
     "class-variance-authority": "^0.7.0",
@@ -30,7 +29,6 @@
     "fast-xml-parser": "^5.12.0",
     "lite-youtube-embed": "^0.3.2",
     "next": "15.5.28",
-    "next-tinacms-cloudinary": "27.0.4",
     "react": "^18",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
@@ -40,13 +38,11 @@
     "resend": "^3.4.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7",
-    "tinacms": "^3.14.0"
-  },
-  "resolutions": {
-    "@tinacms/app": "2.5.14"
+    "yaml": "2.9.1",
+    "server-only": "0.0.1",
+    "remark-gfm": "4.0.1"
   },
   "devDependencies": {
-    "@tinacms/cli": "3.0.0",
     "@types/node": "^26.6.1",
     "@types/react": "^18",
     "@types/react-dom": "^18",

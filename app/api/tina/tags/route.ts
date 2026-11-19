@@ -1,12 +1,7 @@
-// app/api/tina/tags/route.ts
-import { NextRequest, NextResponse } from "next/server";
-import { client } from "@/tina/__generated__/client";
+// Preserve the existing public URL for consumers; no Tina service is used.
+import { NextResponse } from "next/server";
+import { getPosts } from "@/lib/posts";
 
-export async function GET(request: NextRequest) {
-  const { data } = await client.queries.postConnection();
-  const tags = data?.postConnection?.edges?.flatMap(
-    (edge: any) => edge?.node?.tags ?? []
-  );
-  const uniqueTags = Array.from(new Set(tags));
-  return NextResponse.json(uniqueTags);
+export async function GET() {
+  return NextResponse.json(Array.from(new Set((await getPosts()).flatMap(post => post.tags))));
 }
