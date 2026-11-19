@@ -5,12 +5,12 @@ const { ESLint } = require("eslint");
 
 const root = path.resolve(__dirname, "..");
 
-test("lint excludes generated output but still checks application and Tina source", async () => {
+test("lint excludes generated output but still checks application and file reader source", async () => {
   const eslint = new ESLint({ cwd: root, cache: false });
-  for (const file of [".next/server/app/page.js", "out/index.js", "build/index.js", "public/admin/assets/index.js", "tina/__generated__/client.ts"]) {
+  for (const file of [".next/server/app/page.js", "out/index.js", "build/index.js", "public/admin/assets/index.js"]) {
     assert.equal(await eslint.isPathIgnored(path.join(root, file)), true, file);
   }
-  for (const file of ["app/page.tsx", "components/ContactForm.tsx", "tina/config.ts"]) {
+  for (const file of ["app/page.tsx", "components/ContactForm.tsx", "lib/posts.ts"]) {
     assert.equal(await eslint.isPathIgnored(path.join(root, file)), false, file);
   }
   const [result] = await eslint.lintText(
