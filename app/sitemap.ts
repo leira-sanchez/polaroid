@@ -1,14 +1,9 @@
 import { MetadataRoute } from 'next'
-import { client } from "@/tina/__generated__/client";
-
-async function fetchAllBlogSlugs() {
-  const { data } = await client.queries.postConnection();
-  return data?.postConnection?.edges?.map(edge => edge?.node?.slug).filter(Boolean) || [];
-}
+import { getPosts } from "@/lib/posts";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://leirasanchez.com';
-  const blogSlugs = await fetchAllBlogSlugs();
+  const blogSlugs = (await getPosts()).map(post => post.slug);
 
   const routes = ['', '/blog'].map(route => ({
     url: `${baseUrl}${route}`,

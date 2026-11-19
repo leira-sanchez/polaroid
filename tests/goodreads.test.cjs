@@ -125,3 +125,43 @@ test("verified Goodreads feed selects Hacking Growth", () => {
   assert.match(book.title, /^Hacking Growth:/);
   assert.match(book.coverUrl, /^https:\/\/i.gr-assets.com\//);
 });
+
+const { parseCurrentlyReadingProfile, GOODREADS_FEED, GOODREADS_PROFILE } = compiled.exports;
+const profile = (body) => `<div id="currentlyReadingReviews">${body}</div>`;
+const profileItem = (id, title = 'A &amp; B', author = 'First  Last') => `<div class="Updates"><div class="firstcol"><img src="https://i.gr-assets.com/images/cover.jpg"></div><a class="bookTitle" href="/book/show/${id}-sample">${title}</a><a class="authorName">${author}</a></div>`;
+
+test('profile fallback reads only currently-reading section in display order', () => {
+  const result = parseCurrentlyReadingProfile(profileItem(99) + profile(profileItem(2) + profileItem(1)));
+  assert.equal(result.book.id, '2');
+  assert.equal(result.book.title, 'A & B');
+  assert.equal(result.book.author, 'First Last');
+  assert.equal(result.book.coverUrl, 'https://i.gr-assets.com/images/cover.jpg');
+});
+
+test('profile missing, empty, malformed or untrusted links cannot clear cache', () => {
+  for (const html of ['<title>Sign in</title>', profile(''), profile('<div class="Updates"></div>'), profile(profileItem(1).replace('/book/show/1-sample', 'https://evil.example/book/show/1'))]) {
+    assert.throws(() => parseCurrentlyReadingProfile(html), /Invalid Goodreads/);
+  }
+  assert.equal(parseCurrentlyReadingProfile(profile(profileItem(1).replace('https://i.gr-assets.com/images/cover.jpg', 'http://evil.example/x'))).book.coverUrl, null);
+});
+
+test('RSS 404 or invalid markup falls back; valid empty RSS does not', async () => {
+  const original = global.fetch;
+  try {
+    for (const rss of [() => new Response('gone', {status:404}), () => new Response('<html>unavailable</html>')]) {
+      const calls = [];
+      let signal;
+      global.fetch = async (url, options) => {
+        calls.push(url);
+        assert.equal(options.cache, 'no-store');
+        if (!signal) signal = options.signal;
+        else assert.equal(options.signal, signal);
+        return url === GOODREADS_FEED ? rss() : new Response(profile(profileItem(7)));
+      };
+      assert.equal((await fetchCurrentlyReading()).book.id, '7');
+      assert.deepEqual(calls, [GOODREADS_FEED, GOODREADS_PROFILE]);
+    }
+    global.fetch = async url => {assert.equal(url, GOODREADS_FEED); return new Response(feed());};
+    assert.deepEqual(await fetchCurrentlyReading(), {book:null});
+  } finally {global.fetch = original;}
+});

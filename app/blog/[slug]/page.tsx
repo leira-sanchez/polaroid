@@ -1,25 +1,15 @@
 import { Metadata } from "next";
-import { client } from "@/tina/__generated__/client";
-import { Post } from "@/tina/__generated__/types";
+import { getPost } from "@/lib/posts";
+import { notFound } from "next/navigation";
 import BlogPostClient from "./BlogPostClient";
-
-const fetchBlog = async (slug: string) => {
-  try {
-    const { data } = await client.queries.post({
-      relativePath: `${slug}.md`,
-    });
-    return data?.post as Post;
-  } catch (error) {
-    console.error({ error });
-  }
-};
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = await fetchBlog(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
   if (!post) {
     return {
       title: "Leira Sánchez | Blog",
@@ -35,7 +25,8 @@ export async function generateMetadata({
       description: post?.summary || post.title,
       images: post.image ? [{ url: post.image }] : [],
       type: "article",
-      publishedTime: new Date(post.publishDate!).toISOString(),
+      publishedTime: post.publishDate && !Number.isNaN(Date.parse(post.publishDate))
+        ? new Date(post.publishDate).toISOString() : undefined,
     },
     twitter: {
       card: "summary_large_image",
@@ -49,8 +40,10 @@ export async function generateMetadata({
 export default async function BlogPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await fetchBlog(params.slug);
+  const { slug } = await params;
+  const post = await getPost(slug);
+  if (!post) notFound();
   return <BlogPostClient post={post} />;
 }
