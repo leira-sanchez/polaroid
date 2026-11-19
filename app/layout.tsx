@@ -78,18 +78,18 @@ export default function RootLayout({
               />
             </Link>
             <div className="flex flex-wrap items-center gap-4 text-sm sm:text-base">
-              <a href="/" className="text-gray-700 dark:text-gray-300">
+              <Link href="/" className="text-gray-700 dark:text-gray-300">
                 Home
-              </a>
-              <a href="/blog" className="text-gray-700 dark:text-gray-300">
+              </Link>
+              <Link href="/blog" className="text-gray-700 dark:text-gray-300">
                 Blog
-              </a>
-              <a href="/#skills" className="text-gray-700 dark:text-gray-300">
+              </Link>
+              <Link href="/#skills" className="text-gray-700 dark:text-gray-300">
                 Skills
-              </a>
-              <a href="/#experience" className="text-gray-700 dark:text-gray-300">
+              </Link>
+              <Link href="/#experience" className="text-gray-700 dark:text-gray-300">
                 Experience
-              </a>
+              </Link>
             </div>
           </nav>
         </header>

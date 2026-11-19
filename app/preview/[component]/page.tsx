@@ -1,9 +1,10 @@
 import Preview from "../../../components/Preview";
 
-export default function PreviewPage({
+export default async function PreviewPage({
   params,
 }: {
-  params: { component: string };
+  params: Promise<{ component: string }>;
 }) {
-  return <Preview component={params.component} />;
+  const { component } = await params;
+  return <Preview component={component} />;
 }

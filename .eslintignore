@@ -1,0 +1,6 @@
+# Generated application output, never maintained source.
+/.next/
+/out/
+/build/
+/public/admin/
+/tina/__generated__/

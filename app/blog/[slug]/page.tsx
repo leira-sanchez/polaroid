@@ -17,9 +17,10 @@ const fetchBlog = async (slug: string) => {
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const post = await fetchBlog(params.slug);
+  const { slug } = await params;
+  const post = await fetchBlog(slug);
   if (!post) {
     return {
       title: "Leira Sánchez | Blog",
@@ -49,8 +50,9 @@ export async function generateMetadata({
 export default async function BlogPost({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  const post = await fetchBlog(params.slug);
+  const { slug } = await params;
+  const post = await fetchBlog(slug);
   return <BlogPostClient post={post} />;
 }
