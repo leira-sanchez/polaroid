@@ -13,6 +13,7 @@ interface ExperienceItemProps {
   responsibilities: string[];
   links?: {
     web?: string;
+    webLabel?: string;
     ios?: string;
     android?: string;
   };
@@ -182,7 +183,7 @@ const ExperienceItem: FC<ExperienceItemProps> = ({
                 className="text-wrap break-words hover:underline text-link"
                 href={links?.web}
               >
-                {links?.web}
+                {links.webLabel ?? links.web}
               </Link>
             </li>
           ) : null}

@@ -78,10 +78,10 @@ const EXPERIENCE_STRINGS = [
     duration: "February 2019 – August 2019",
     responsibilities: [
       "Learned to develop full-stack applications using Software Engineering & Clean Code best practices during an intensive 6-month internal web development bootcamp",
-      "Read about my experience on the Capital One blog",
     ],
     links: {
-      web: "https://www.capitalone.com/tech/culture/my-journey-through-capital-one-developer-academy",
+      web: "https://dev.to/leirasanchez/pursuing-a-software-career-via-capital-one-developer-academy-2oi0",
+      webLabel: "Read about my Capital One Developer Academy experience on DEV Community",
     },
   },
 ];
