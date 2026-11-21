@@ -80,8 +80,8 @@ const EXPERIENCE_STRINGS = [
       "Learned to develop full-stack applications using Software Engineering & Clean Code best practices during an intensive 6-month internal web development bootcamp",
     ],
     links: {
-      web: "https://www.mofongojobs.com/blog/my-journey-through-capital-one-developer-academy",
-      webLabel: "Read an excerpt about my Capital One Developer Academy experience",
+      web: "https://dev.to/leirasanchez/pursuing-a-software-career-via-capital-one-developer-academy-2oi0",
+      webLabel: "Read about my Capital One Developer Academy experience on DEV Community",
     },
   },
 ];
